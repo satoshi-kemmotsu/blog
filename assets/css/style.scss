@@ -250,7 +250,9 @@ a:hover {
     display: block !important;
     color: #333 !important;
     
-    * {
+    *,
+    *::before,
+    *::after {
       color: #333 !important;
     }
     
@@ -261,12 +263,10 @@ a:hover {
       display: block !important;
     }
     
-    p strong {
-      color: #333 !important;
-    }
-    
+    p strong,
     strong {
       color: #333 !important;
+      font-weight: bold !important;
     }
   }
   
