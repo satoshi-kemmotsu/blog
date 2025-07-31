@@ -105,23 +105,7 @@
             <strong>📅 営業日:</strong> {{ site.clinic_info.days }}<br>
             <strong>📍 対応エリア:</strong> {{ site.clinic_info.area }}
           </p>
-          <p><a href="{{ site.clinic_info.main_site }}" target="_blank">公式サイトはこちら</a></p>
-        </div>
-        <div class="footer-nav">
-          <h4>対応症状</h4>
-          <ul>
-            {% for condition in site.conditions limit:8 %}
-            <li><a href="{{ site.clinic_info.main_site }}" target="_blank">{{ condition }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="footer-areas">
-          <h4>対応地域</h4>
-          <ul>
-            {% for area in site.areas limit:8 %}
-            <li><a href="{{ site.clinic_info.main_site }}" target="_blank">大阪市{{ area }}</a></li>
-            {% endfor %}
-          </ul>
+          <p><a href="{{ site.clinic_info.main_site }}" target="_blank">📞 無料体験のお申込みはこちら</a></p>
         </div>
       </div>
       <div class="footer-bottom">

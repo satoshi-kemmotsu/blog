@@ -262,9 +262,8 @@ a:hover {
   margin-top: 4rem;
   
   .container {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 2rem;
+    text-align: center;
+    max-width: 800px;
   }
   
   h3, h4 {
@@ -337,18 +336,10 @@ a:hover {
   .container {
     padding: 0 15px;
   }
-  
-  .site-footer .container {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
 }
 
 /* モバイル対応 */
 @media (max-width: 768px) {
-  .site-footer .container {
-    grid-template-columns: 1fr;
-  }
   
   .post .post-title {
     font-size: 1.5rem;
