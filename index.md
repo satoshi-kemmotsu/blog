@@ -33,24 +33,24 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 
 <div class="conditions-grid">
 {% for condition in site.conditions %}
-  <a href="{{ site.clinic_info.main_site }}" target="_blank" class="condition-link">{{ condition }}</a>
+  <a href="/symptoms/{{ condition | url_encode }}/" class="condition-link">{{ condition }}</a>
 {% endfor %}
 </div>
 
 <p style="text-align: center; margin-top: 15px;">
-  <a href="{{ site.clinic_info.main_site }}" target="_blank" class="view-all-link">→ 詳しい症状情報はこちら</a>
+  <a href="/symptoms/" class="view-all-link">→ 症状別記事一覧を見る</a>
 </p>
 
 ### 📍 対応エリア
 
 <div class="areas-grid">
 {% for area in site.areas %}
-  <a href="{{ site.clinic_info.main_site }}" target="_blank" class="area-link">大阪市{{ area }}</a>
+  <a href="/areas/{{ area | url_encode }}/" class="area-link">大阪市{{ area }}</a>
 {% endfor %}
 </div>
 
 <p style="text-align: center; margin-top: 15px;">
-  <a href="{{ site.clinic_info.main_site }}" target="_blank" class="view-all-link">→ 詳しいエリア情報はこちら</a>
+  <a href="/areas/" class="view-all-link">→ 地域別記事一覧を見る</a>
 </p>
 
 ### 📞 お問い合わせ
