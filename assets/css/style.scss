@@ -220,26 +220,30 @@ a:hover {
   visibility: visible !important;
   opacity: 1 !important;
   color: #333 !important;
-  
-  * {
-    color: #333 !important;
-  }
-  
-  h3 {
-    color: #DB7093 !important;
-    margin-top: 0 !important;
-    display: block !important;
-  }
-  
-  p {
-    color: #333 !important;
-    margin: 1rem 0 !important;
-    display: block !important;
-  }
-  
-  strong {
-    color: #333 !important;
-  }
+}
+
+.cta-section *,
+.cta-section *::before,
+.cta-section *::after {
+  color: #333 !important;
+}
+
+.cta-section h3 {
+  color: #DB7093 !important;
+  margin-top: 0 !important;
+  display: block !important;
+}
+
+.cta-section p {
+  color: #333 !important;
+  margin: 1rem 0 !important;
+  display: block !important;
+}
+
+.cta-section strong {
+  color: #333 !important;
+  font-weight: bold !important;
+}
   
   .cta-info {
     background-color: #f8f9fa !important;
