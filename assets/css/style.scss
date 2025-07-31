@@ -238,12 +238,17 @@ a:hover {
     border-radius: 5px !important;
     margin: 1rem 0 !important;
     display: block !important;
+    color: #333 !important;
     
     p {
       margin: 0.5rem 0 !important;
       font-weight: bold !important;
       color: #333 !important;
       display: block !important;
+    }
+    
+    p strong {
+      color: #333 !important;
     }
   }
   
