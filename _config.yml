@@ -12,16 +12,14 @@ locale: "ja_JP"
 # Jekyll設定
 markdown: kramdown
 highlighter: rouge
-theme: minima
+# theme: minima  # テーマを無効化してカスタムレイアウトを使用
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
 
-# ナビゲーション
-header_pages:
-  - symptoms.md
-  - areas.md
+# ナビゲーション（カスタムナビゲーションを使用するため無効化）
+header_pages: []
 
 # SEO強化
 google_analytics: # GA4 測定IDを設定

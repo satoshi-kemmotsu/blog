@@ -1,7 +1,37 @@
 ---
 ---
 
-@import "minima";
+/* @import "minima"; */  /* Minimaテーマのインポートを無効化 */
+
+/* 基本的なリセットCSS */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0.5em 0;
+}
+
+a {
+  color: #007cba;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 新しいシンプルなヘッダースタイル */
 
 /* カスタムスタイル */
 .container {
@@ -10,32 +40,107 @@
   padding: 0 20px;
 }
 
-/* ヘッダー */
-.site-header {
+.header {
   background-color: #4a90e2;
   color: white;
   padding: 1rem 0;
-  
-  .site-title a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
+  position: relative;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 24px;
+  position: relative;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #357abd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.nav.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  border-bottom: 1px solid #4a90e2;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.nav a:last-child {
+  border-bottom: none;
+}
+
+.nav a:hover {
+  background-color: #4a90e2;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0 15px;
   }
   
-  .site-nav {
-    float: right;
-    margin-top: 0.5rem;
-    
-    a {
-      color: white;
-      text-decoration: none;
-      margin-left: 1rem;
-      
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  .logo a {
+    font-size: 1.3rem;
+  }
+  
+  .hamburger {
+    width: 26px;
+    height: 20px;
   }
 }
 
@@ -220,20 +325,38 @@
   }
 }
 
-/* レスポンシブ */
-@media (max-width: 768px) {
-  .site-header {
-    .site-nav {
-      float: none;
-      margin-top: 1rem;
-    }
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 15px;
   }
   
+  .site-footer .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
   .site-footer .container {
     grid-template-columns: 1fr;
   }
   
   .post .post-title {
     font-size: 1.5rem;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .cta-section {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+  
+  .post {
+    margin: 1rem auto;
   }
 }

@@ -179,68 +179,136 @@ body {
   color: #f8f9fa;
 }
 
-/* レスポンシブ対応 */
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  .hero-content {
+    left: 30px;
+    max-width: 500px;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+}
+
+/* モバイル対応 */
 @media (max-width: 768px) {
   .hero {
-    margin: -30px -20px 30px -20px;
-    border-radius: 0;
+    margin: -20px -10px 30px -10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: none;
+  }
+  
+  .hero-image {
+    height: 200px;
+    position: relative;
   }
   
   .hero-content {
-    left: 20px;
-    right: 20px;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    padding: 20px;
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    text-shadow: none;
     max-width: none;
   }
   
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
   }
   
   .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
   }
   
   .hero-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
   
-  .hero-image {
-    height: 300px;
+  .hero-cta {
+    align-items: center;
+  }
+  
+  .cta-button-primary {
+    align-self: center;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    margin: -40px -20px 20px -20px;
-    border-radius: 0;
-  }
-  
-  .hero-content {
-    left: 15px;
-    right: 15px;
-  }
-  
-  .hero-title {
-    font-size: 1.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.3rem;
-  }
-  
-  .cta-button-primary {
-    padding: 12px 24px;
-    font-size: 1.1rem;
+    margin: -10px -10px 20px -10px;
+    border-radius: 5px;
   }
   
   .hero-image {
-    height: 250px;
+    height: 180px;
   }
   
-  /* スマホでは完全に上部に詰める */
-  body, .page-content, .wrapper {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  .hero-content {
+    padding: 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    br {
+      display: none;
+    }
+  }
+  
+  .cta-button-primary {
+    padding: 12px 20px;
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hero-contact {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .phone-number {
+    font-size: 1.1rem;
+  }
+  
+  .hours {
+    font-size: 0.9rem;
+  }
+  
+  /* モバイル時のコンテンツグリッドも調整 */
+  .conditions-grid, .areas-grid {
+    gap: 8px;
+  }
+  
+  .condition-link, .area-link {
+    padding: 6px 12px;
+    font-size: 0.85em;
   }
 }
 

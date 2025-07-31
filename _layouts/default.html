@@ -68,12 +68,17 @@
 
 <body>
   <div class="wrapper">
-    <header class="site-header">
-      <div class="container">
-        <h1 class="site-title">
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
           <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
-        </h1>
-        <nav class="site-nav">
+        </div>
+        <button class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav" id="nav">
           <a href="{{ "/" | relative_url }}">ホーム</a>
           <a href="{{ "/about/" | relative_url }}">当院について</a>
           <a href="{{ "/contact/" | relative_url }}">お問い合わせ</a>
@@ -126,5 +131,28 @@
       </div>
     </footer>
   </div>
+  
+  <!-- ハンバーガーメニューのJavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburger = document.getElementById('hamburger');
+      const nav = document.getElementById('nav');
+      
+      if (hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+          hamburger.classList.toggle('active');
+          nav.classList.toggle('active');
+        });
+        
+        // メニュー外をクリックした時に閉じる
+        document.addEventListener('click', function(event) {
+          if (!hamburger.contains(event.target) && !nav.contains(event.target)) {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
