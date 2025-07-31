@@ -1,7 +1,7 @@
 # ひまわり治療院 SEO ブログサイト設定
 title: "ひまわり治療院 | 大阪市訪問マッサージ・医療保険適用"
 description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心。"
-baseurl: "/himawari-massage-blog"
+baseurl: "/blog"
 url: "https://username.github.io"
 
 # SEO設定
