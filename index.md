@@ -4,13 +4,32 @@ title: "ひまわり治療院ブログ | 大阪市訪問マッサージ・医療
 description: "大阪市での訪問マッサージ・在宅医療マッサージの専門情報。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病の症状改善事例、予防法、よくある質問を専門家が解説。医療保険適用で安心の在宅ケア。"
 ---
 
-# 大阪市訪問マッサージ専門ブログ
+<!-- ヒーローセクション -->
+<section class="hero">
+  <div class="hero-image">
+    <img src="/assets/images/hero-massage.jpg" alt="ひまわり治療院の訪問マッサージ - 専門スタッフによる在宅リハビリテーション">
+  </div>
+  <div class="hero-content">
+    <h1 class="hero-title">大阪市訪問マッサージ専門</h1>
+    <h2 class="hero-subtitle">ひまわり治療院</h2>
+    <p class="hero-description">
+      医療保険適用の訪問マッサージで、大阪市内のご自宅にお伺いいたします。<br>
+      脊柱管狭窄症、脳梗塞、パーキンソン病など、様々な症状でお困りの方への<br>
+      専門的なケアをご提供します。
+    </p>
+    <div class="hero-cta">
+      <a href="{{ site.clinic_info.main_site }}" target="_blank" class="cta-button-primary">
+        📞 無料体験のお申込み
+      </a>
+      <div class="hero-contact">
+        <span class="phone-number">{{ site.clinic_info.phone }}</span>
+        <span class="hours">{{ site.clinic_info.hours }}</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-## ひまわり治療院の専門情報サイト
-
-医療保険適用の訪問マッサージで、大阪市内のご自宅にお伺いいたします。
-脊柱管狭窄症、脳梗塞、パーキンソン病など、様々な症状でお困りの方への
-専門的な情報をお届けします。
+## 専門情報サイト
 
 ### 🏥 対応可能な症状
 
@@ -51,6 +70,154 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 ---
 
 <style>
+/* ヒーローセクション */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.hero-image {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  max-width: 600px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.hero-subtitle {
+  font-size: 2rem;
+  color: #ffeb3b;
+  margin: 0 0 20px 0;
+  font-weight: 600;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #f8f9fa;
+}
+
+.hero-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cta-button-primary {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+  align-self: flex-start;
+}
+
+.cta-button-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255,107,107,0.6);
+  background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+}
+
+.hero-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.phone-number {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #ffeb3b;
+}
+
+.hours {
+  font-size: 1rem;
+  color: #f8f9fa;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .hero-content {
+    left: 20px;
+    right: 20px;
+    max-width: none;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-image {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    left: 15px;
+    right: 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .cta-button-primary {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+  
+  .hero-image {
+    height: 250px;
+  }
+}
+
+/* 既存のスタイル */
 .conditions-grid, .areas-grid {
   display: flex;
   flex-wrap: wrap;
