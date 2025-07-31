@@ -27,7 +27,9 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 ### 📞 お問い合わせ
 
 - **電話:** {{ site.clinic_info.phone }}
+- **住所:** {{ site.clinic_info.address }}
 - **営業時間:** {{ site.clinic_info.hours }}
+- **営業日:** {{ site.clinic_info.days }}
 - **対応エリア:** {{ site.clinic_info.area }}
 
 ### 🌐 詳細情報

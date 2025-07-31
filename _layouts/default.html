@@ -32,7 +32,7 @@
     "description": "{{ site.description }}",
     "url": "{{ site.clinic_info.main_site }}",
     "telephone": "{{ site.clinic_info.phone }}",
-    "openingHours": "Mo-Fr {{ site.clinic_info.hours }}",
+    "openingHours": "Mo-Su 08:00-21:00",
     "areaServed": {
       "@type": "City",
       "name": "大阪市"
@@ -94,9 +94,11 @@
           <h3>{{ site.clinic_info.name }}</h3>
           <p>{{ site.description }}</p>
           <p>
-            <strong>電話:</strong> {{ site.clinic_info.phone }}<br>
-            <strong>営業時間:</strong> {{ site.clinic_info.hours }}<br>
-            <strong>対応エリア:</strong> {{ site.clinic_info.area }}
+            <strong>📞 電話:</strong> {{ site.clinic_info.phone }}<br>
+            <strong>🏠 住所:</strong> {{ site.clinic_info.address }}<br>
+            <strong>🕒 営業時間:</strong> {{ site.clinic_info.hours }}<br>
+            <strong>📅 営業日:</strong> {{ site.clinic_info.days }}<br>
+            <strong>📍 対応エリア:</strong> {{ site.clinic_info.area }}
           </p>
           <p><a href="{{ site.clinic_info.main_site }}" target="_blank">公式サイトはこちら</a></p>
         </div>

@@ -30,9 +30,11 @@ google_site_verification: # Google Search Console 認証
 # 医療・地域情報
 clinic_info:
   name: "ひまわり治療院"
-  phone: "06-XXXX-XXXX"
-  area: "大阪市浪速区を中心とした大阪市内"
-  hours: "平日9:00-18:00"
+  phone: "080-4769-0101"
+  address: "〒556-0016 大阪市浪速区元町3-2"
+  area: "大阪市内全域（特に浪速区を中心とした大阪市内）"
+  hours: "毎日 08:00-21:00"
+  days: "月曜日から日曜日、祝日も営業"
   main_site: "https://peraichi.com/landing_pages/view/himawari-massage/"
 
 # 対応傷病
