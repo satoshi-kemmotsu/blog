@@ -1,0 +1,80 @@
+# ひまわり治療院 SEO ブログサイト設定
+title: "ひまわり治療院 | 大阪市訪問マッサージ・医療保険適用"
+description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心。"
+baseurl: "/himawari-massage-blog"
+url: "https://username.github.io"
+
+# SEO設定
+author: "ひまわり治療院"
+lang: "ja"
+locale: "ja_JP"
+
+# Jekyll設定
+markdown: kramdown
+highlighter: rouge
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# ナビゲーション
+header_pages:
+  - about.md
+  - contact.md
+
+# SEO強化
+google_analytics: # GA4 測定IDを設定
+google_site_verification: # Google Search Console 認証
+
+# 医療・地域情報
+clinic_info:
+  name: "ひまわり治療院"
+  phone: "06-XXXX-XXXX"
+  area: "大阪市浪速区を中心とした大阪市内"
+  hours: "平日9:00-18:00"
+  main_site: "https://peraichi.com/landing_pages/view/himawari-massage/"
+
+# 対応傷病
+conditions:
+  - "脊柱管狭窄症"
+  - "脳梗塞" 
+  - "パーキンソン病"
+  - "頸椎症"
+  - "変形性関節症"
+  - "脊髄損傷"
+  - "脳血管障害"
+  - "腰椎症"
+  - "五十肩"
+  - "膝関節症"
+  - "リウマチ"
+  - "坐骨神経痛"
+  - "椎間板ヘルニア"
+  - "骨粗鬆症"
+  - "筋萎縮"
+  - "関節拘縮"
+
+# 対応地域
+areas:
+  - "浪速区"
+  - "中央区"
+  - "西区"
+  - "港区"
+  - "大正区"
+  - "天王寺区"
+  - "阿倍野区"
+  - "住之江区"
+  - "住吉区"
+  - "東住吉区"
+  - "平野区"
+  - "生野区"
+  - "東成区"
+  - "旭区"
+  - "城東区"
+  - "鶴見区"
+
+# 記事カテゴリ
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:title/

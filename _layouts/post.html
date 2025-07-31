@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%Y年%m月%d日" }}
+      </time>
+      {% if page.categories %}
+        • カテゴリ: 
+        {% for category in page.categories %}
+          <span class="category">{{ category }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+    
+    {% if page.tags %}
+    <div class="post-tags">
+      タグ: 
+      {% for tag in page.tags %}
+        <span class="tag">#{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+    
+    <!-- CTAセクション -->
+    <div class="cta-section">
+      <h3>{{ site.clinic_info.name }}へのお問い合わせ</h3>
+      <p>この症状でお悩みの方は、お気軽にご相談ください。医療保険適用で安心してご利用いただけます。</p>
+      <div class="cta-info">
+        <p><strong>📞 電話:</strong> {{ site.clinic_info.phone }}</p>
+        <p><strong>🕒 営業時間:</strong> {{ site.clinic_info.hours }}</p>
+        <p><strong>📍 対応エリア:</strong> {{ site.clinic_info.area }}</p>
+      </div>
+      <p><a href="{{ site.clinic_info.main_site }}" target="_blank" class="cta-button">詳細・無料体験のお申込みはこちら</a></p>
+    </div>
+  </div>
+
+  <!-- JSON-LD 記事用構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title | escape }}",
+    "description": "{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | truncate: 160 | escape }}",
+    "author": {
+      "@type": "Organization",
+      "name": "{{ site.clinic_info.name }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.clinic_info.name }}"
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "{% if page.tags %}{{ page.tags | first }}{% endif %}"
+    }
+  }
+  </script>
+</article>
+
+<!-- 関連記事 -->
+<div class="related-posts">
+  <h3>関連記事</h3>
+  {% assign related_posts = site.posts | where_exp: "post", "post.tags.first == page.tags.first" | limit: 3 %}
+  {% if related_posts.size > 0 %}
+    <ul>
+      {% for post in related_posts %}
+        {% unless post.url == page.url %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+        {% endunless %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
