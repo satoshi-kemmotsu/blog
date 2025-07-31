@@ -244,6 +244,31 @@ a:hover {
   color: #333 !important;
   font-weight: bold !important;
 }
+
+/* 新しいコンタクト詳細セクション */
+.contact-details {
+  background-color: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 8px !important;
+  padding: 1.5rem !important;
+  margin: 1.5rem 0 !important;
+  display: block !important;
+}
+
+.contact-item {
+  color: #333 !important;
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  margin: 0.8rem 0 !important;
+  padding: 0.5rem 0 !important;
+  display: block !important;
+  text-align: center !important;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.contact-item:last-child {
+  border-bottom: none !important;
+}
   
   .cta-info {
     background-color: #f8f9fa !important;
