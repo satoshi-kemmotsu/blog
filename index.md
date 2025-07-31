@@ -70,13 +70,24 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 ---
 
 <style>
+/* ページ全体の上部余白をリセット */
+body {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 /* ヒーローセクション */
 .hero {
   position: relative;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 40px;
+  margin: -20px -15px 40px -15px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
@@ -170,6 +181,11 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+  .hero {
+    margin: -30px -20px 30px -20px;
+    border-radius: 0;
+  }
+  
   .hero-content {
     left: 20px;
     right: 20px;
@@ -194,6 +210,11 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 }
 
 @media (max-width: 480px) {
+  .hero {
+    margin: -40px -20px 20px -20px;
+    border-radius: 0;
+  }
+  
   .hero-content {
     left: 15px;
     right: 15px;
@@ -214,6 +235,12 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   
   .hero-image {
     height: 250px;
+  }
+  
+  /* スマホでは完全に上部に詰める */
+  body, .page-content, .wrapper {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
 }
 
