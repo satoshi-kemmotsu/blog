@@ -14,15 +14,27 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 
 ### 🏥 対応可能な症状
 
+<div class="conditions-grid">
 {% for condition in site.conditions %}
-- {{ condition }}
+  <a href="/symptoms/{{ condition | url_encode }}/" class="condition-link">{{ condition }}</a>
 {% endfor %}
+</div>
+
+<p style="text-align: center; margin-top: 15px;">
+  <a href="/symptoms/" class="view-all-link">→ 症状別記事一覧を見る</a>
+</p>
 
 ### 📍 対応エリア
 
+<div class="areas-grid">
 {% for area in site.areas %}
-- 大阪市{{ area }}
+  <a href="/areas/{{ area | url_encode }}/" class="area-link">大阪市{{ area }}</a>
 {% endfor %}
+</div>
+
+<p style="text-align: center; margin-top: 15px;">
+  <a href="/areas/" class="view-all-link">→ 地域別記事一覧を見る</a>
+</p>
 
 ### 📞 お問い合わせ
 
@@ -37,6 +49,46 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 [{{ site.clinic_info.name }}の詳細はこちら]({{ site.clinic_info.main_site }}){:target="_blank"}
 
 ---
+
+<style>
+.conditions-grid, .areas-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+.condition-link, .area-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #495057;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.condition-link:hover, .area-link:hover {
+  background: #007cba;
+  color: white;
+  border-color: #007cba;
+  transform: translateY(-2px);
+}
+
+.view-all-link {
+  color: #007cba;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.view-all-link:hover {
+  text-decoration: underline;
+}
+</style>
 
 ## 最新記事
 

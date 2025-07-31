@@ -20,8 +20,8 @@ plugins:
 
 # ナビゲーション
 header_pages:
-  - about.md
-  - contact.md
+  - symptoms.md
+  - areas.md
 
 # SEO強化
 google_analytics: # GA4 測定IDを設定
