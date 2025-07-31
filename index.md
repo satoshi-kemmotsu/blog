@@ -95,14 +95,14 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 }
 
 .hero-content h1 {
-  color: #FF8C00;
+  color: #DB7093;
   font-size: 1.8rem;
   margin: 0 0 10px 0;
   font-weight: bold;
 }
 
 .hero-content h2 {
-  color: #FFD700;
+  color: #FFB6C1;
   font-size: 1.5rem;
   margin: 0 0 20px 0;
   font-weight: 600;
@@ -117,7 +117,7 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 
 .cta-button {
   display: inline-block;
-  background: linear-gradient(45deg, #FFD700, #FFA500);
+  background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
   color: white;
   padding: 15px 25px;
   border-radius: 25px;
@@ -130,9 +130,9 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 
 .cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
   text-decoration: none;
-  background: linear-gradient(45deg, #FFA500, #FF8C00);
+  background: linear-gradient(45deg, #F8BBD9, #DDA0DD);
 }
 
 .contact-info {
@@ -142,7 +142,7 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 .phone {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #FF8C00;
+  color: #DB7093;
   margin-bottom: 5px;
 }
 
@@ -225,15 +225,15 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 }
 
 .condition-link:hover, .area-link:hover {
-  background: #FFD700;
+  background: #FFB6C1;
   color: white;
-  border-color: #FFD700;
+  border-color: #FFB6C1;
   transform: translateY(-2px);
   text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .view-all-link {
-  color: #FF8C00;
+  color: #DB7093;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;

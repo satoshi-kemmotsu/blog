@@ -23,13 +23,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #FF8C00;
+  color: #DB7093;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #FFD700;
+  color: #FFB6C1;
 }
 
 /* 新しいシンプルなヘッダースタイル */
@@ -42,11 +42,11 @@ a:hover {
 }
 
 .header {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
   color: white;
   padding: 1rem 0;
   position: relative;
-  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(255, 182, 193, 0.3);
 }
 
 .header-container {
@@ -103,8 +103,8 @@ a:hover {
   top: 100%;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
-  box-shadow: 0 2px 5px rgba(255, 165, 0, 0.3);
+  background: linear-gradient(135deg, #F8BBD9 0%, #FFB6C1 100%);
+  box-shadow: 0 2px 5px rgba(248, 187, 217, 0.3);
   z-index: 1000;
 }
 
@@ -189,12 +189,12 @@ a:hover {
     }
     
     h2 {
-      border-bottom: 2px solid #FFD700;
+      border-bottom: 2px solid #FFB6C1;
       padding-bottom: 0.3rem;
     }
     
     h3 {
-      color: #FF8C00;
+      color: #DB7093;
     }
     
     ul, ol {
@@ -210,15 +210,15 @@ a:hover {
 
 /* CTAセクション */
 .cta-section {
-  background: linear-gradient(135deg, #FFF8DC 0%, #FFFACD 100%);
-  border: 2px solid #FFD700;
+  background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
+  border: 2px solid #FFB6C1;
   border-radius: 8px;
   padding: 2rem;
   margin: 3rem 0;
   text-align: center;
   
   h3 {
-    color: #FF8C00;
+    color: #DB7093;
     margin-top: 0;
   }
   
@@ -236,7 +236,7 @@ a:hover {
   
   .cta-button {
     display: inline-block;
-    background: linear-gradient(45deg, #FFD700, #FFA500);
+    background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
     color: white;
     padding: 1rem 2rem;
     text-decoration: none;
@@ -247,9 +247,9 @@ a:hover {
     transition: all 0.3s ease;
     
     &:hover {
-      background: linear-gradient(45deg, #FFA500, #FF8C00);
+      background: linear-gradient(45deg, #F8BBD9, #DDA0DD);
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
     }
   }
 }
@@ -268,7 +268,7 @@ a:hover {
   }
   
   h3, h4 {
-    color: #FFD700;
+    color: #FFB6C1;
     margin-bottom: 1rem;
   }
   
@@ -283,11 +283,11 @@ a:hover {
   }
   
   a {
-    color: #FFD700;
+    color: #FFB6C1;
     text-decoration: none;
     
     &:hover {
-      color: #FFA500;
+      color: #F8BBD9;
       text-decoration: underline;
     }
   }
@@ -309,7 +309,7 @@ a:hover {
   border-top: 1px solid #eee;
   
   h3 {
-    color: #FF8C00;
+    color: #DB7093;
   }
   
   ul {
@@ -325,7 +325,7 @@ a:hover {
       text-decoration: none;
       
       &:hover {
-        color: #FF8C00;
+        color: #DB7093;
         text-decoration: underline;
       }
     }
