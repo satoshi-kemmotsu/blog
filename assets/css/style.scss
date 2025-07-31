@@ -208,18 +208,13 @@ a:hover {
   }
 }
 
-/* CTAセクション - 強制表示 */
+/* CTAセクション - 完全非表示 */
 .cta-section {
-  background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%) !important;
-  border: 2px solid #FFB6C1 !important;
-  border-radius: 8px !important;
-  padding: 2rem !important;
-  margin: 3rem 0 !important;
-  text-align: center !important;
-  display: block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  color: #333 !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
 }
 
 .cta-section h3 {
