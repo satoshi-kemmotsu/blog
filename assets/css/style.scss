@@ -210,46 +210,59 @@ a:hover {
 
 /* CTAセクション */
 .cta-section {
-  background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%);
-  border: 2px solid #FFB6C1;
-  border-radius: 8px;
-  padding: 2rem;
-  margin: 3rem 0;
-  text-align: center;
+  background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%) !important;
+  border: 2px solid #FFB6C1 !important;
+  border-radius: 8px !important;
+  padding: 2rem !important;
+  margin: 3rem 0 !important;
+  text-align: center !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   
   h3 {
-    color: #DB7093;
-    margin-top: 0;
+    color: #DB7093 !important;
+    margin-top: 0 !important;
+    display: block !important;
+  }
+  
+  p {
+    color: #333 !important;
+    margin: 1rem 0 !important;
+    display: block !important;
   }
   
   .cta-info {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 1rem 0;
+    background-color: white !important;
+    padding: 1rem !important;
+    border-radius: 5px !important;
+    margin: 1rem 0 !important;
+    display: block !important;
     
     p {
-      margin: 0.5rem 0;
-      font-weight: bold;
+      margin: 0.5rem 0 !important;
+      font-weight: bold !important;
+      color: #333 !important;
+      display: block !important;
     }
   }
   
   .cta-button {
-    display: inline-block;
-    background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
-    color: white;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    margin-top: 1rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
+    display: inline-block !important;
+    background: linear-gradient(45deg, #FFB6C1, #F8BBD9) !important;
+    color: white !important;
+    padding: 1rem 2rem !important;
+    text-decoration: none !important;
+    border-radius: 25px !important;
+    font-weight: bold !important;
+    margin-top: 1rem !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+    transition: all 0.3s ease !important;
     
     &:hover {
-      background: linear-gradient(45deg, #F8BBD9, #DDA0DD);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+      background: linear-gradient(45deg, #F8BBD9, #DDA0DD) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4) !important;
     }
   }
 }
