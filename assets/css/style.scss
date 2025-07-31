@@ -208,13 +208,76 @@ a:hover {
   }
 }
 
-/* CTAセクション（一時無効化） */
+/* CTAセクション - 強制表示 */
 .cta-section {
-  display: none !important;
+  background: linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%) !important;
+  border: 2px solid #FFB6C1 !important;
+  border-radius: 8px !important;
+  padding: 2rem !important;
+  margin: 3rem 0 !important;
+  text-align: center !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #333 !important;
+}
+
+.cta-section h3 {
+  color: #DB7093 !important;
+  margin-top: 0 !important;
+  display: block !important;
+}
+
+.cta-section p {
+  color: #333 !important;
+  margin: 1rem 0 !important;
+  display: block !important;
+}
+
+.cta-section strong {
+  color: #333 !important;
+  font-weight: bold !important;
 }
 
 .cta-info {
-  display: none !important;
+  background-color: #f8f9fa !important;
+  border: 1px solid #dee2e6 !important;
+  padding: 1rem !important;
+  border-radius: 5px !important;
+  margin: 1rem 0 !important;
+  display: block !important;
+  color: #333 !important;
+}
+
+.cta-info p {
+  color: #333 !important;
+  margin: 0.5rem 0 !important;
+  font-weight: bold !important;
+  display: block !important;
+}
+
+.cta-info strong {
+  color: #333 !important;
+  font-weight: bold !important;
+}
+
+.cta-button {
+  display: inline-block !important;
+  background: linear-gradient(45deg, #FFB6C1, #F8BBD9) !important;
+  color: white !important;
+  padding: 1rem 2rem !important;
+  text-decoration: none !important;
+  border-radius: 25px !important;
+  font-weight: bold !important;
+  margin-top: 1rem !important;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+  transition: all 0.3s ease !important;
+}
+
+.cta-button:hover {
+  background: linear-gradient(45deg, #F8BBD9, #DDA0DD) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4) !important;
 }
 }
 
