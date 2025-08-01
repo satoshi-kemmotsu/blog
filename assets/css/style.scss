@@ -208,13 +208,16 @@ a:hover {
   }
 }
 
-/* CTAセクション - 完全非表示 */
+/* CTAセクション - 表示して色修正 */
 .cta-section {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #333 !important;
+  background-color: #f8f9fa !important;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+  border-radius: 5px !important;
 }
 
 .cta-section h3 {
