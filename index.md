@@ -1,7 +1,7 @@
 ---
 layout: home
 title: "ひまわり治療院ブログ | 大阪市訪問マッサージ・医療保険適用"
-description: "大阪市での訪問マッサージ・在宅医療マッサージの専門情報。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病の症状改善事例、予防法、よくある質問を専門家が解説。医療保険適用で安心の在宅ケア。"
+description: "大阪市での訪問マッサージ・在宅医療マッサージの専門情報。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病の症状緩和事例、予防法、よくある質問を専門家が解説。医療保険適用で安心の在宅ケア。"
 ---
 
 <!-- ヒーローセクション -->
@@ -17,7 +17,7 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
     
     <div class="hero-cta">
       <a href="{{ site.clinic_info.main_site }}" target="_blank" class="cta-button">
-        📞 無料体験のお申込み
+        📞 医療保険適用でお申込み
       </a>
       <div class="contact-info">
         <div class="phone">{{ site.clinic_info.phone }}</div>
