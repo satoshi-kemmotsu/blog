@@ -1,6 +1,24 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header-container">
+        <div class="logo">
+          <a href="/">ひまわり治療院 | 大阪市訪問マッサージ・医療保険適用</a>
+        </div>
+      </div>
+    </header>
+    <main class="page-content">
+      <div class="container">
 
 <div class="archive-header">
   <h1>大阪市{{ page.area }}の訪問マッサージ記事一覧</h1>
@@ -146,3 +164,16 @@ layout: default
 }
 
 </style>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-info">
+          <h3>ひまわり治療院</h3>
+          <p>大阪市での訪問マッサージ・在宅医療マッサージ。</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
