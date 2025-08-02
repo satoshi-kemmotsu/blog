@@ -29,18 +29,7 @@ permalink: /archive/
     <div class="archive-meta">
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
       {% if post.categories[0] %}
-        {% case post.categories[0] %}
-          {% when 'symptom_guide' %}
-            <span class="category">症状解説</span>
-          {% when 'case_study' %}
-            <span class="category">ケア事例</span>
-          {% when 'qa' %}
-            <span class="category">よくある質問</span>
-          {% when 'prevention' %}
-            <span class="category">セルフケア</span>
-          {% else %}
-            <span class="category">{{ post.categories[0] }}</span>
-        {% endcase %}
+<span class="category">{{ post.categories[0] }}</span>
       {% endif %}
     </div>
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>

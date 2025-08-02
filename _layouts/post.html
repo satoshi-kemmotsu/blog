@@ -12,18 +12,7 @@ layout: default
       {% if page.categories %}
         • カテゴリ: 
         {% for category in page.categories %}
-          {% case category %}
-            {% when 'symptom_guide' %}
-              <span class="category">症状解説</span>
-            {% when 'case_study' %}
-              <span class="category">ケア事例</span>
-            {% when 'qa' %}
-              <span class="category">よくある質問</span>
-            {% when 'prevention' %}
-              <span class="category">セルフケア</span>
-            {% else %}
-              <span class="category">{{ category }}</span>
-          {% endcase %}{% unless forloop.last %}, {% endunless %}
+          <span class="category">{{ category }}</span>{% unless forloop.last %}, {% endunless %}
         {% endfor %}
       {% endif %}
     </p>
