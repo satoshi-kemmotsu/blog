@@ -69,8 +69,8 @@ layout: default
 </article>
 
 <!-- 関連記事 - SEO最適化版 -->
-<section class="related-posts" aria-labelledby="related-heading">
-  <h3 id="related-heading">関連する専門情報</h3>
+<section class="related-posts">
+  <h3>関連する専門情報</h3>
   
   <!-- 同症状・異なる地域 -->
   {% assign same_condition_posts = site.posts | where_exp: "post", "post.tags.first == page.tags.first and post.url != page.url" | limit: 2 %}
