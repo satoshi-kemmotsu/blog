@@ -12,7 +12,17 @@ layout: default
       {% if page.categories %}
         • カテゴリ: 
         {% for category in page.categories %}
-          <span class="category">{{ category }}</span>{% unless forloop.last %}, {% endunless %}
+          {% if category == 'symptom_guide' %}
+            <span class="category">症状解説</span>
+          {% elsif category == 'prevention' %}
+            <span class="category">セルフケア</span>
+          {% elsif category == 'qa' %}
+            <span class="category">よくある質問</span>
+          {% elsif category == 'case_study' %}
+            <span class="category">ケア事例</span>
+          {% else %}
+            <span class="category">{{ category }}</span>
+          {% endif %}{% unless forloop.last %}, {% endunless %}
         {% endfor %}
       {% endif %}
     </p>
