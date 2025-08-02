@@ -266,7 +266,18 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
     <div class="article-meta">
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
       {% if post.categories[0] %}
-<span class="category">{{ post.categories[0] }}</span>
+        {% assign category = post.categories[0] %}
+        {% if category == 'symptom_guide' %}
+          <span class="category">症状解説</span>
+        {% elsif category == 'prevention' %}
+          <span class="category">セルフケア</span>
+        {% elsif category == 'qa' %}
+          <span class="category">よくある質問</span>
+        {% elsif category == 'case_study' %}
+          <span class="category">ケア事例</span>
+        {% else %}
+          <span class="category">{{ category }}</span>
+        {% endif %}
       {% endif %}
     </div>
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
