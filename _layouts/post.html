@@ -68,17 +68,188 @@ layout: default
   </script>
 </article>
 
-<!-- 関連記事 -->
-<div class="related-posts">
-  <h3>関連記事</h3>
-  {% assign related_posts = site.posts | where_exp: "post", "post.tags.first == page.tags.first" | limit: 3 %}
-  {% if related_posts.size > 0 %}
-    <ul>
-      {% for post in related_posts %}
-        {% unless post.url == page.url %}
-        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
-        {% endunless %}
-      {% endfor %}
-    </ul>
+<!-- 関連記事 - SEO最適化版 -->
+<section class="related-posts" aria-labelledby="related-heading">
+  <h3 id="related-heading">関連する専門情報</h3>
+  
+  <!-- 同症状・異なる地域 -->
+  {% assign same_condition_posts = site.posts | where_exp: "post", "post.tags.first == page.tags.first and post.url != page.url" | limit: 2 %}
+  {% if same_condition_posts.size > 0 %}
+    <div class="related-section">
+      <h4>同じ症状の他地域情報</h4>
+      <ul class="related-list">
+        {% for post in same_condition_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}" rel="related">
+            {{ post.title }}
+            <span class="related-meta">{{ post.date | date: "%Y年%m月" }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   {% endif %}
-</div>
+  
+  <!-- 同地域・異なる症状 -->
+  {% assign current_area = page.tags | last %}
+  {% assign same_area_posts = site.posts | where_exp: "post", "post.tags contains current_area and post.tags.first != page.tags.first and post.url != page.url" | limit: 2 %}
+  {% if same_area_posts.size > 0 %}
+    <div class="related-section">
+      <h4>{{ current_area }}の他の症状情報</h4>
+      <ul class="related-list">
+        {% for post in same_area_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}" rel="related">
+            {{ post.title }}
+            <span class="related-meta">{{ post.date | date: "%Y年%m月" }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  <!-- 最新記事 -->
+  {% assign latest_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 2 %}
+  {% if latest_posts.size > 0 %}
+    <div class="related-section">
+      <h4>最新の専門情報</h4>
+      <ul class="related-list">
+        {% for post in latest_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}" rel="related">
+            {{ post.title }}
+            <span class="related-meta">{{ post.date | date: "%Y年%m月" }}</span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  <!-- 症状別・地域別インデックス -->
+  <div class="related-section">
+    <h4>専門情報インデックス</h4>
+    <div class="index-links">
+      <a href="/symptoms/" rel="index">症状別記事一覧</a>
+      <a href="/areas/" rel="index">地域別記事一覧</a>
+      <a href="/archive/" rel="index">全記事一覧</a>
+    </div>
+  </div>
+</section>
+
+<style>
+.related-posts {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 40px 0;
+  border-left: 4px solid #FFB6C1;
+}
+
+.related-posts h3 {
+  color: #DB7093;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.related-section {
+  margin-bottom: 25px;
+}
+
+.related-section:last-child {
+  margin-bottom: 0;
+}
+
+.related-section h4 {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 5px;
+}
+
+.related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-list li {
+  margin-bottom: 8px;
+}
+
+.related-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.related-list a:hover {
+  background: #FFB6C1;
+  color: white;
+  transform: translateX(5px);
+  text-decoration: none;
+}
+
+.related-meta {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.related-list a:hover .related-meta {
+  color: rgba(255,255,255,0.8);
+}
+
+.index-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.index-links a {
+  background: #FFB6C1;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.index-links a:hover {
+  background: #DB7093;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .related-posts {
+    padding: 20px;
+    margin: 30px 0;
+  }
+  
+  .related-list a {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+  
+  .index-links {
+    flex-direction: column;
+  }
+  
+  .index-links a {
+    text-align: center;
+  }
+}
+</style>
