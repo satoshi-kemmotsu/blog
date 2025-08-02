@@ -68,75 +68,22 @@ layout: default
   </script>
 </article>
 
-<!-- 関連記事 - SEO最適化版 -->
-<section class="related-posts">
-  <h3>関連する専門情報</h3>
-  
-  <!-- 同症状・異なる地域 -->
-  {% assign same_condition_posts = site.posts | where_exp: "post", "post.tags.first == page.tags.first and post.url != page.url" | limit: 2 %}
-  {% if same_condition_posts.size > 0 %}
-    <div class="related-section">
-      <h4>同じ症状の他地域情報</h4>
-      <ul class="related-list">
-        {% for post in same_condition_posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}" rel="related">
-            {{ post.title }}
-            <span class="related-meta">{{ post.date | date: "%Y年%m月" }}</span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-  
-  <!-- 同地域・異なる症状 -->
-  {% assign current_area = page.tags | last %}
-  {% assign same_area_posts = site.posts | where_exp: "post", "post.tags contains current_area and post.tags.first != page.tags.first and post.url != page.url" | limit: 2 %}
-  {% if same_area_posts.size > 0 %}
-    <div class="related-section">
-      <h4>{{ current_area }}の他の症状情報</h4>
-      <ul class="related-list">
-        {% for post in same_area_posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}" rel="related">
-            {{ post.title }}
-            <span class="related-meta">{{ post.date | date: "%Y年%m月" }}</span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-  
-  <!-- 最新記事 -->
-  {% assign latest_posts = site.posts | where_exp: "post", "post.url != page.url" | limit: 2 %}
-  {% if latest_posts.size > 0 %}
-    <div class="related-section">
-      <h4>最新の専門情報</h4>
-      <ul class="related-list">
-        {% for post in latest_posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}" rel="related">
-            {{ post.title }}
-            <span class="related-meta">{{ post.date | date: "%Y年%m月" }}</span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
-  
-  <!-- 症状別・地域別インデックス -->
+<!-- 関連記事 -->
+<div class="related-posts">
+  <h3>関連記事</h3>
   <div class="related-section">
-    <h4>専門情報インデックス</h4>
-    <div class="index-links">
-      <a href="/symptoms/" rel="index">症状別記事一覧</a>
-      <a href="/areas/" rel="index">地域別記事一覧</a>
-      <a href="/archive/" rel="index">全記事一覧</a>
-    </div>
+    <h4>最新記事</h4>
+    <ul class="related-list">
+      {% for post in site.posts limit:3 %}
+        {% unless post.url == page.url %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+        {% endunless %}
+      {% endfor %}
+    </ul>
   </div>
-</section>
+</div>
 
 <style>
 .related-posts {
