@@ -81,18 +81,88 @@ layout: default
 <!-- 関連記事 -->
 <div class="related-posts">
   <h3>関連記事</h3>
-  <div class="related-section">
-    <h4>最新記事</h4>
-    <ul class="related-list">
-      {% for post in site.posts limit:3 %}
-        {% unless post.url == page.url %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
-        {% endunless %}
-      {% endfor %}
-    </ul>
-  </div>
+  
+  <!-- 同一症状×他地域記事 -->
+  {% if page.tags and page.tags.size > 0 %}
+    {% assign same_condition_posts = site.posts | where_exp: "post", "post.tags contains page.tags[0]" %}
+    {% assign same_condition_filtered = same_condition_posts | where_exp: "post", "post.url != page.url" %}
+    {% if same_condition_filtered.size > 0 %}
+      <div class="related-section">
+        <h4>{{ page.tags[0] }}に関する他地域の記事</h4>
+        <ul class="related-list">
+          {% for post in same_condition_filtered limit:2 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- 同一地域×他症状記事 -->
+  {% if page.tags and page.tags.size > 1 %}
+    {% assign same_area_posts = site.posts | where_exp: "post", "post.tags contains page.tags[1]" %}
+    {% assign same_area_filtered = same_area_posts | where_exp: "post", "post.url != page.url" %}
+    {% assign same_area_different_condition = same_area_filtered | where_exp: "post", "post.tags[0] != page.tags[0]" %}
+    {% if same_area_different_condition.size > 0 %}
+      <div class="related-section">
+        <h4>{{ page.tags[1] }}の他の症状記事</h4>
+        <ul class="related-list">
+          {% for post in same_area_different_condition limit:2 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- 同一カテゴリ記事 -->
+  {% if page.categories and page.categories.size > 0 %}
+    {% assign same_category_posts = site.posts | where: "categories", page.categories[0] %}
+    {% assign same_category_filtered = same_category_posts | where_exp: "post", "post.url != page.url" %}
+    {% if same_category_filtered.size > 0 %}
+      <div class="related-section">
+        <h4>同じカテゴリの記事</h4>
+        <ul class="related-list">
+          {% for post in same_category_filtered limit:2 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- フォールバック：最新記事 -->
+  {% assign total_related = 0 %}
+  {% if page.tags and page.tags.size > 0 %}
+    {% assign same_condition_filtered = site.posts | where_exp: "post", "post.tags contains page.tags[0]" | where_exp: "post", "post.url != page.url" %}
+    {% assign total_related = total_related | plus: same_condition_filtered.size %}
+  {% endif %}
+  {% if page.tags and page.tags.size > 1 %}
+    {% assign same_area_filtered = site.posts | where_exp: "post", "post.tags contains page.tags[1]" | where_exp: "post", "post.url != page.url" %}
+    {% assign same_area_different_condition = same_area_filtered | where_exp: "post", "post.tags[0] != page.tags[0]" %}
+    {% assign total_related = total_related | plus: same_area_different_condition.size %}
+  {% endif %}
+  
+  {% if total_related < 2 %}
+    <div class="related-section">
+      <h4>最新記事</h4>
+      <ul class="related-list">
+        {% for post in site.posts limit:3 %}
+          {% unless post.url == page.url %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
 </div>
 
 <style>
