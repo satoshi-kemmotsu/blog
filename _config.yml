@@ -22,7 +22,7 @@ plugins:
 header_pages: []
 
 # SEO強化
-google_analytics: # GA4 測定IDを設定
+google_analytics: "G-B9F26NS4W9"
 google_site_verification: # Google Search Console 認証
 
 # 医療・地域情報
