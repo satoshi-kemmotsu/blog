@@ -73,25 +73,7 @@
   <!-- Jekyll SEO Plugin -->
   {% seo %}
   
-  <!-- Google Analytics -->
-  {% if site.google_analytics %}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
-    
-    // LP遷移トラッキング
-    function trackLPClick(linkText) {
-      gtag('event', 'click', {
-        event_category: 'outbound',
-        event_label: 'LP遷移',
-        value: linkText
-      });
-    }
-  </script>
-  {% endif %}
+  <!-- 古いGoogle Analytics削除済み - ブログ専用GA4を使用 -->
 </head>
 
 <body>

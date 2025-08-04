@@ -22,7 +22,7 @@ plugins:
 header_pages: []
 
 # SEO強化
-google_analytics: "G-B9F26NS4W9"
+# google_analytics: "G-B9F26NS4W9"  # LP用タグ - ブログでは使用しない
 google_site_verification: # Google Search Console 認証
 
 # 医療・地域情報
