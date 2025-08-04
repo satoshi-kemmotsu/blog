@@ -302,6 +302,18 @@ a:hover {
     font-size: 0.9rem;
     color: #ccc;
   }
+  
+  .footer-logo {
+    color: #FFB6C1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    
+    &:hover {
+      color: #FFC0CB;
+      text-decoration: none;
+    }
+  }
 }
 
 /* 関連記事 */
