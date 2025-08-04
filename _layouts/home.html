@@ -1,0 +1,122 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<!-- 最新記事セクション -->
+<section class="latest-posts">
+  <h2>📝 最新記事</h2>
+  <div class="posts-grid">
+    {% for post in site.posts limit:10 %}
+      <article class="post-card">
+        <h3 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%Y年%m月%d日" }}
+          </time>
+          {% if post.categories %}
+            • カテゴリ: 
+            {% for category in post.categories %}
+              {% if category == 'symptom_guide' %}
+                <span class="category">症状解説</span>
+              {% elsif category == 'prevention' %}
+                <span class="category">セルフケア</span>
+              {% elsif category == 'qa' %}
+                <span class="category">よくある質問</span>
+              {% elsif category == 'case_study' %}
+                <span class="category">ケア事例</span>
+              {% else %}
+                <span class="category">{{ category }}</span>
+              {% endif %}{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          {% endif %}
+        </div>
+        {% if post.excerpt %}
+          <div class="post-excerpt">
+            {{ post.excerpt | strip_html | truncate: 100 }}
+          </div>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+.latest-posts {
+  margin: 40px 0;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.latest-posts h2 {
+  color: #DB7093;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.posts-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.post-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+}
+
+.post-title {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: #333;
+}
+
+.post-title a:hover {
+  color: #DB7093;
+}
+
+.post-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.category {
+  background: #DB7093;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.post-excerpt {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .latest-posts {
+    padding: 20px;
+  }
+}
+</style>
