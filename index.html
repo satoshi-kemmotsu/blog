@@ -84,13 +84,18 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 
 <style>
 .hero-section {
-  background: linear-gradient(135deg, #FFB6C1 0%, #F8BBD9 50%, #DDA0DD 100%);
+  background: 
+    linear-gradient(135deg, rgba(255, 182, 193, 0.8) 0%, rgba(248, 187, 217, 0.8) 50%, rgba(221, 160, 221, 0.8) 100%),
+    url('/assets/images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
   text-align: center;
   padding: 50px 20px;
   margin-bottom: 40px;
   border-radius: 15px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
 .hero-section h1 {
