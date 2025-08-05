@@ -1,9 +1,16 @@
 ---
-layout: post
-title: "関節拘縮でお悩みの方へ｜鶴見区の訪問マッサージで症状緩和"
+categories:
+- symptom_guide
 date: 2025-08-02 14:05:00 +0000
-categories: symptom_guide
-tags: [関節拘縮, 鶴見区, 訪問マッサージ, 医療保険, 大阪市, 在宅医療]
+layout: post
+tags:
+- 関節拘縮
+- 鶴見区
+- 訪問マッサージ
+- 医療保険
+- 大阪市
+- 在宅医療
+title: 関節拘縮でお悩みの方へ｜鶴見区の訪問マッサージで症状緩和
 ---
 
 
