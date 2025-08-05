@@ -1,0 +1,247 @@
+---
+layout: default
+title: "よくある質問一覧 | ひまわり治療院ブログ"
+description: "大阪市での訪問マッサージ・在宅医療マッサージのよくある質問集。料金、保険適用、対応症状など、皆様の疑問にお答えします。"
+permalink: /archive/qa/
+---
+
+# ❓ よくある質問一覧
+
+訪問マッサージ・在宅医療マッサージに関する皆様の疑問にお答えしています。
+
+<div class="archive-header">
+  {% assign qa_posts = site.posts | where: 'categories', 'qa' %}
+  <p>❓ よくある質問記事数: <strong>{{ qa_posts.size }}件</strong></p>
+  <p>🔄 最終更新: <strong>{% if qa_posts.first %}{{ qa_posts.first.date | date: "%Y年%m月%d日" }}{% else %}記事準備中{% endif %}</strong></p>
+</div>
+
+<!-- カテゴリ別ナビゲーション -->
+<div class="category-filter">
+  <h3>🏷️ カテゴリ別記事</h3>
+  <div class="filter-buttons">
+    <a href="/archive/" class="filter-btn">📋 すべて ({{ site.posts.size }})</a>
+    <a href="/symptoms/" class="filter-btn">🩺 症状解説 ({% assign symptom_posts = site.posts | where: 'categories', 'symptom_guide' %}{{ symptom_posts.size }})</a>
+    <a href="/archive/cases/" class="filter-btn">📊 ケア事例 ({% assign case_posts = site.posts | where: 'categories', 'case_study' %}{{ case_posts.size }})</a>
+    <a href="/archive/prevention/" class="filter-btn">💪 セルフケア ({% assign prevention_posts = site.posts | where: 'categories', 'prevention' %}{{ prevention_posts.size }})</a>
+    <a href="/archive/qa/" class="filter-btn active">❓ よくある質問 ({{ qa_posts.size }})</a>
+  </div>
+</div>
+
+{% if qa_posts.size == 0 %}
+<div class="no-articles">
+  <p>❓ よくある質問記事は準備中です。まもなく更新予定です！</p>
+  <p><a href="/archive/">← 記事一覧に戻る</a></p>
+</div>
+{% else %}
+
+<!-- よくある質問記事一覧 -->
+<div class="archive-list">
+  <h2>❓ よくある質問記事 ({{ qa_posts.size }}件)</h2>
+  {% for post in qa_posts %}
+    {% include archive-item.html %}
+  {% endfor %}
+</div>
+
+{% endif %}
+
+---
+
+## 📍 地域別よくある質問
+
+<div class="area-filter">
+  <h3>🗾 大阪市24区別よくある質問</h3>
+  <div class="area-grid">
+    {% assign areas = "中央区,北区,西区,港区,大正区,天王寺区,浪速区,西成区,阿倍野区,住吉区,東住吉区,住之江区,平野区,生野区,東成区,旭区,城東区,鶴見区,淀川区,西淀川区,東淀川区,福島区,此花区,都島区" | split: "," %}
+    {% for area in areas %}
+      {% assign area_qa_posts = qa_posts | where_exp: "post", "post.tags contains area" %}
+      {% if area_qa_posts.size > 0 %}
+        <a href="/areas/{{ area }}/" class="area-tag active">{{ area }} ({{ area_qa_posts.size }})</a>
+      {% else %}
+        <span class="area-tag inactive">{{ area }} (0)</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+/* 既存のアーカイブページと同じスタイル */
+.archive-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  text-align: center;
+  border-left: 5px solid #ffc107;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.archive-header p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+.archive-header strong {
+  color: #e6a700;
+  font-weight: bold;
+}
+
+.category-filter {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.category-filter h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #666;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: linear-gradient(45deg, #ffc107, #ffca2c);
+  color: white;
+  border-color: #ffc107;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+}
+
+.archive-list {
+  margin: 30px 0;
+}
+
+.archive-list h2 {
+  color: #333;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ffc107;
+  font-size: 1.5rem;
+}
+
+.area-filter {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px 0;
+  border-left: 5px solid #28a745;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.area-filter h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.area-tag {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.area-tag.active {
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.area-tag.active:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  text-decoration: none;
+}
+
+.area-tag.inactive {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: default;
+}
+
+.no-articles {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.no-articles p {
+  margin: 10px 0;
+  color: #856404;
+  font-weight: bold;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .area-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  
+  .area-tag {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .archive-header, .category-filter, .area-filter {
+    padding: 20px;
+  }
+  
+  .area-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style>
