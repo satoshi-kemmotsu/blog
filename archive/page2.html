@@ -1,25 +1,25 @@
 ---
 layout: default
-title: "記事一覧 | ひまわり治療院ブログ"
-description: "大阪市での訪問マッサージ・在宅医療マッサージの専門記事一覧。症状解説、ケア事例、セルフケア、よくある質問を分かりやすく整理してご覧いただけます。"
-permalink: /archive/
+title: "記事一覧 - 2ページ目 | ひまわり治療院ブログ"
+description: "大阪市での訪問マッサージ・在宅医療マッサージの専門記事一覧の2ページ目。症状解説、ケア事例、セルフケア、よくある質問の続きをご覧いただけます。"
+permalink: /archive/page2/
 ---
 
-# 📝 記事一覧
+# 📝 記事一覧 - 2ページ目
 
-大阪市での訪問マッサージ・在宅医療マッサージの専門記事を見やすく整理してご覧いただけます。
+大阪市での訪問マッサージ・在宅医療マッサージの専門記事の続きをご覧いただけます。
 
 <div class="archive-header">
   <p>📊 総記事数: <strong>{{ site.posts.size }}件</strong></p>
   <p>🔄 最終更新: <strong>{% if site.posts.first %}{{ site.posts.first.date | date: "%Y年%m月%d日" }}{% else %}記事準備中{% endif %}</strong></p>
-  <p>📄 このページ: <strong>最新20件を表示</strong></p>
+  <p>📄 このページ: <strong>21件目以降を表示</strong></p>
 </div>
 
 <!-- カテゴリ別フィルターナビゲーション -->
 <div class="category-filter">
   <h3>🏷️ カテゴリ別記事</h3>
   <div class="filter-buttons">
-    <a href="/archive/" class="filter-btn active">📋 すべて ({{ site.posts.size }})</a>
+    <a href="/archive/" class="filter-btn">📋 すべて ({{ site.posts.size }})</a>
     <a href="/symptoms/" class="filter-btn">🩺 症状解説 ({% assign symptom_posts = site.posts | where: 'categories', 'symptom_guide' %}{{ symptom_posts.size }})</a>
     <a href="/archive/cases/" class="filter-btn">📊 ケア事例 ({% assign case_posts = site.posts | where: 'categories', 'case_study' %}{{ case_posts.size }})</a>
     <a href="/archive/prevention/" class="filter-btn">💪 セルフケア ({% assign prevention_posts = site.posts | where: 'categories', 'prevention' %}{{ prevention_posts.size }})</a>
@@ -27,37 +27,35 @@ permalink: /archive/
   </div>
 </div>
 
-{% if site.posts.size == 0 %}
+{% if site.posts.size <= 20 %}
 <div class="no-articles">
-  <p>🌻 記事準備中です。まもなく更新予定です！</p>
-  <p><a href="/">← トップページに戻る</a></p>
+  <p>📄 このページに表示する記事はありません。</p>
+  <p><a href="/archive/">← 1ページ目に戻る</a></p>
 </div>
 {% else %}
 
-<!-- 最新記事一覧 (1-20件) -->
+<!-- 記事一覧 (21件目以降) -->
 <div class="archive-list">
-  <h2>📅 最新記事 (1-20件)</h2>
-  {% for post in site.posts limit:20 %}
+  <h2>📅 記事一覧 (21-40件)</h2>
+  {% assign skip_count = 20 %}
+  {% for post in site.posts offset:20 limit:20 %}
     {% include archive-item.html %}
   {% endfor %}
 </div>
 
 <!-- SEO最適化手動ページネーション -->
 {% assign total_posts = site.posts.size %}
-{% if total_posts > 20 %}
 <nav class="pagination" aria-label="記事ページナビゲーション">
   <div class="pagination-info">
-    <p>📄 全{{ total_posts }}件中 1-{% if total_posts < 20 %}{{ total_posts }}{% else %}20{% endif %}件目を表示</p>
+    <p>📄 全{{ total_posts }}件中 21-{% if total_posts < 40 %}{{ total_posts }}{% else %}40{% endif %}件目を表示</p>
   </div>
   
   <div class="pagination-nav">
-    <span class="pagination-btn prev disabled">← 前のページ</span>
+    <a href="/archive/" class="pagination-btn prev" rel="prev">← 前のページ</a>
     
     <div class="pagination-numbers">
-      <span class="pagination-number current" aria-current="page">1</span>
-      {% if total_posts > 20 %}
-        <a href="/archive/page2/" class="pagination-number">2</a>
-      {% endif %}
+      <a href="/archive/" class="pagination-number">1</a>
+      <span class="pagination-number current" aria-current="page">2</span>
       {% if total_posts > 40 %}
         <a href="/archive/page3/" class="pagination-number">3</a>
       {% endif %}
@@ -74,14 +72,13 @@ permalink: /archive/
       {% endif %}
     </div>
 
-    {% if total_posts > 20 %}
-      <a href="/archive/page2/" class="pagination-btn next" rel="next">次のページ →</a>
+    {% if total_posts > 40 %}
+      <a href="/archive/page3/" class="pagination-btn next" rel="next">次のページ →</a>
     {% else %}
       <span class="pagination-btn next disabled">次のページ →</span>
     {% endif %}
   </div>
 </nav>
-{% endif %}
 
 {% endif %}
 
@@ -105,7 +102,7 @@ permalink: /archive/
 </div>
 
 <style>
-/* ヘッダースタイル */
+/* 既存のスタイルを保持 */
 .archive-header {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 12px;
@@ -127,7 +124,6 @@ permalink: /archive/
   font-weight: bold;
 }
 
-/* カテゴリフィルター */
 .category-filter {
   background: #fff;
   border: 1px solid #dee2e6;
@@ -164,7 +160,7 @@ permalink: /archive/
   transition: all 0.3s ease;
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover {
   background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
   color: white;
   border-color: #FFB6C1;
@@ -173,7 +169,6 @@ permalink: /archive/
   box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
 }
 
-/* 記事一覧 */
 .archive-list {
   margin: 30px 0;
 }
@@ -202,73 +197,6 @@ permalink: /archive/
   border-color: #FFB6C1;
 }
 
-.archive-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-}
-
-.archive-meta time {
-  color: #666;
-  font-weight: bold;
-}
-
-.category {
-  background: #FFB6C1;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-
-.archive-item h3 {
-  margin: 0 0 12px 0;
-  font-size: 1.3rem;
-  line-height: 1.4;
-}
-
-.archive-item h3 a {
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.archive-item h3 a:hover {
-  color: #DB7093;
-}
-
-.excerpt {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin: 12px 0;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 15px;
-}
-
-.tag {
-  background: #e9ecef;
-  color: #495057;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  transition: all 0.3s ease;
-}
-
-.tag:hover {
-  background: #FFB6C1;
-  color: white;
-}
-
-/* SEO最適化ページネーション */
 .pagination {
   margin: 40px 0;
   text-align: center;
@@ -372,7 +300,6 @@ permalink: /archive/
   font-size: 1.2rem;
 }
 
-/* 地域フィルター */
 .area-filter {
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border-radius: 12px;
@@ -484,12 +411,6 @@ permalink: /archive/
   
   .archive-item {
     padding: 20px;
-  }
-  
-  .archive-meta {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
   }
 }
 

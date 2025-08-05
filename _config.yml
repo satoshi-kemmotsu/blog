@@ -17,14 +17,9 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate
 
 # ナビゲーション（カスタムナビゲーションを使用するため無効化）
 header_pages: []
-
-# ページネーション設定
-paginate: 12
-paginate_path: "/archive/page:num/"
 
 # SEO強化
 # google_analytics: "G-B9F26NS4W9"  # LP用タグ - ブログでは使用しない
