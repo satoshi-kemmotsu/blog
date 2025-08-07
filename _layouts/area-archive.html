@@ -8,7 +8,7 @@ layout: default
 </div>
 
 <div class="archive-content">
-  {% assign area_posts = site.posts | where_exp: "post", "post.tags contains page.area" %}
+  {% assign area_posts = site.posts | where: "area", page.area %}
   
   {% if area_posts.size > 0 %}
     <div class="posts-grid">

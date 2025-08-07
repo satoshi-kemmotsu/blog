@@ -8,7 +8,7 @@ layout: default
 </div>
 
 <div class="archive-content">
-  {% assign symptom_posts = site.posts | where_exp: "post", "post.tags contains page.symptom" %}
+  {% assign symptom_posts = site.posts | where: "condition", page.symptom %}
   
   {% if symptom_posts.size > 0 %}
     <div class="posts-grid">
