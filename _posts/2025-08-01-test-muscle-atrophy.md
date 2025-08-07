@@ -5,8 +5,8 @@ date: 2025-08-04 01:05:00 +0000
 categories: ["case_study"]
 tags: ["リウマチ", "生野区", "訪問マッサージ", "医療保険", "大阪市", "在宅医療"]
 
-condition: "筋萎縮"
-area: "中央区"
+condition: "リウマチ"
+area: "生野区"
 ---
 
 
