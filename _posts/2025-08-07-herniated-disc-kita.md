@@ -2,7 +2,7 @@
 layout: post
 title: "椎間板ヘルニアでお悩みの方へ｜北区の訪問マッサージで症状緩和"
 date: 2025-08-07 06:30:00 +0000
-categories: [症状解説]
+categories: [symptom_guide]
 tags: ['椎間板ヘルニア', '北区', '訪問マッサージ']
 area: 北区
 condition: 椎間板ヘルニア

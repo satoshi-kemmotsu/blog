@@ -2,7 +2,7 @@
 layout: post
 title: "椎間板ヘルニア症状緩和のセルフケア｜東住吉区在宅医療マッサージ指導"
 date: 2025-08-07 07:00:00 +0000
-categories: [セルフケア]
+categories: [prevention]
 tags: ['椎間板ヘルニア', '東住吉区', '訪問マッサージ']
 area: 東住吉区
 condition: 椎間板ヘルニア
