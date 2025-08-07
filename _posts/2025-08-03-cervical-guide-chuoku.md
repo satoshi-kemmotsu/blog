@@ -6,7 +6,7 @@ categories: [symptom_guide]
 tags: ['頸椎症', '中央区', '訪問マッサージ', '医療保険', '大阪市', '在宅医療']
 description: "頸椎症でお悩みの方へ｜中央区の訪問マッサージで症状緩和"
 
-condition: "頚椎症"
+condition: "頸椎症"
 area: "中央区"
 ---
 
