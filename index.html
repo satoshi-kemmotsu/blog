@@ -46,7 +46,12 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   <h2>🩺 対応傷病一覧</h2>
   <div class="conditions-grid">
     {% for condition in site.conditions %}
-      <span class="condition-tag">{{ condition }}</span>
+      {% assign condition_posts = site.posts | where: "condition", condition %}
+      {% if condition_posts.size > 0 %}
+        <a href="/symptoms/{{ condition }}/" class="condition-tag active">{{ condition }} <span class="count">({{ condition_posts.size }}記事)</span></a>
+      {% else %}
+        <a href="/symptoms/{{ condition }}/" class="condition-tag">{{ condition }} <span class="count">(準備中)</span></a>
+      {% endif %}
     {% endfor %}
   </div>
 </section>
