@@ -56,11 +56,11 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   <h2>📍 対応地域（大阪市内全域）</h2>
   <div class="areas-grid">
     {% for area in site.areas %}
-      {% assign area_posts = site.posts | where_exp: "post", "post.tags contains area" %}
+      {% assign area_posts = site.posts | where: "area", area %}
       {% if area_posts.size > 0 %}
-        <a href="/archive/#area-{{ area }}" class="area-tag active">{{ area }} <span class="count">({{ area_posts.size }}記事)</span></a>
+        <a href="/areas/{{ area }}/" class="area-tag active">{{ area }} <span class="count">({{ area_posts.size }}記事)</span></a>
       {% else %}
-        <span class="area-tag">{{ area }}</span>
+        <a href="/areas/{{ area }}/" class="area-tag">{{ area }} <span class="count">(準備中)</span></a>
       {% endif %}
     {% endfor %}
   </div>
