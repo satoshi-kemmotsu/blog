@@ -17,6 +17,7 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-paginate
 
 # ナビゲーション（カスタムナビゲーションを使用するため無効化）
 header_pages: []
@@ -25,15 +26,23 @@ header_pages: []
 # google_analytics: "G-B9F26NS4W9"  # LP用タグ - ブログでは使用しない
 google_site_verification: # Google Search Console 認証
 
-# 医療・地域情報
+# ビジネス情報（Jekyll動的参照用・GAFAM憲法準拠）
+business_info:
+  company_name: "ひまわり治療院"
+  license: "あん摩マッサージ指圧師"
+  phone_number: "{{ site.env.CLINIC_PHONE | default: '[CLINIC_PHONE環境変数を設定してください]' }}"
+  landing_page_url: "{{ site.env.MAIN_SITE_URL | default: '[MAIN_SITE_URL環境変数を設定してください]' }}"
+  business_hours: "{{ site.env.BUSINESS_HOURS | default: '[BUSINESS_HOURS環境変数を設定してください]' }}"
+  
+# 医療・地域情報（GAFAM憲法準拠・既存互換性維持）  
 clinic_info:
   name: "ひまわり治療院"
-  phone: "{{ site.env.CLINIC_PHONE | default: '080-4769-0101' }}"
-  address: "{{ site.env.CLINIC_ADDRESS | default: '〒556-0016 大阪市浪速区元町3-2' }}"
-  area: "{{ site.env.SERVICE_AREA | default: '大阪市内全域（特に浪速区を中心とした大阪市内）' }}"
-  hours: "{{ site.env.BUSINESS_HOURS | default: '毎日 08:00-21:00' }}"
-  days: "{{ site.env.BUSINESS_DAYS | default: '月曜日から日曜日、祝日も営業' }}"
-  main_site: "{{ site.env.MAIN_SITE_URL | default: 'https://peraichi.com/landing_pages/view/himawari-massage/' }}"
+  phone: "{{ site.env.CLINIC_PHONE | default: '[CLINIC_PHONE環境変数を設定してください]' }}"
+  address: "{{ site.env.CLINIC_ADDRESS | default: '[CLINIC_ADDRESS環境変数を設定してください]' }}"
+  area: "{{ site.env.SERVICE_AREA | default: '[SERVICE_AREA環境変数を設定してください]' }}"
+  hours: "{{ site.env.BUSINESS_HOURS | default: '[BUSINESS_HOURS環境変数を設定してください]' }}"
+  days: "{{ site.env.BUSINESS_DAYS | default: '[BUSINESS_DAYS環境変数を設定してください]' }}"
+  main_site: "{{ site.env.MAIN_SITE_URL | default: '[MAIN_SITE_URL環境変数を設定してください]' }}"
 
 # 対応傷病
 conditions:
@@ -81,6 +90,10 @@ areas:
   - "西成区"
   - "都島区"
 
+# Jekyll自動ページネーション設定（SEO最優先・GitHub Pages対応）
+paginate: 20
+paginate_path: '/archive/page:num/'
+    
 # 記事カテゴリ
 collections:
   posts:
