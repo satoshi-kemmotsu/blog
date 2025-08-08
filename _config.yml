@@ -2,7 +2,7 @@
 title: "🌻 ひまわり治療院 🌻"
 description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心。"
 baseurl: ""
-url: "https://himawari-massage.jp"
+url: "{{ site.env.SITE_URL | default: 'https://himawari-massage.jp' }}"
 
 # SEO設定
 author: "ひまわり治療院"
@@ -28,12 +28,12 @@ google_site_verification: # Google Search Console 認証
 # 医療・地域情報
 clinic_info:
   name: "ひまわり治療院"
-  phone: "080-4769-0101"
-  address: "〒556-0016 大阪市浪速区元町3-2"
-  area: "大阪市内全域（特に浪速区を中心とした大阪市内）"
-  hours: "毎日 08:00-21:00"
-  days: "月曜日から日曜日、祝日も営業"
-  main_site: "https://peraichi.com/landing_pages/view/himawari-massage/"
+  phone: "{{ site.env.CLINIC_PHONE | default: '080-4769-0101' }}"
+  address: "{{ site.env.CLINIC_ADDRESS | default: '〒556-0016 大阪市浪速区元町3-2' }}"
+  area: "{{ site.env.SERVICE_AREA | default: '大阪市内全域（特に浪速区を中心とした大阪市内）' }}"
+  hours: "{{ site.env.BUSINESS_HOURS | default: '毎日 08:00-21:00' }}"
+  days: "{{ site.env.BUSINESS_DAYS | default: '月曜日から日曜日、祝日も営業' }}"
+  main_site: "{{ site.env.MAIN_SITE_URL | default: 'https://peraichi.com/landing_pages/view/himawari-massage/' }}"
 
 # 対応傷病
 conditions:
