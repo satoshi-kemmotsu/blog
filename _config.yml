@@ -26,23 +26,23 @@ header_pages: []
 # google_analytics: "G-B9F26NS4W9"  # LP用タグ - ブログでは使用しない
 google_site_verification: # Google Search Console 認証
 
-# ビジネス情報（SEO最適化・統一URL設定）
+# ビジネス情報（Jekyll動的参照用・GAFAM憲法準拠）
 business_info:
   company_name: "ひまわり治療院"
   license: "あん摩マッサージ指圧師"
-  phone_number: "080-4769-0101"
-  landing_page_url: "https://peraichi.com/landing_pages/view/himawari-massage/"
-  business_hours: "毎日8:00-21:00営業"
+  phone_number: "{{ site.env.CLINIC_PHONE | default: '[CLINIC_PHONE環境変数を設定してください]' }}"
+  landing_page_url: "{{ site.env.MAIN_SITE_URL | default: '[MAIN_SITE_URL環境変数を設定してください]' }}"
+  business_hours: "{{ site.env.BUSINESS_HOURS | default: '[BUSINESS_HOURS環境変数を設定してください]' }}"
   
-# 医療・地域情報（SEO最適化・Link Equity集約）  
+# 医療・地域情報（GAFAM憲法準拠・既存互換性維持）  
 clinic_info:
   name: "ひまわり治療院"
-  phone: "080-4769-0101"
-  address: "大阪市浪速区"
-  area: "大阪市内全域"
-  hours: "毎日8:00-21:00営業"
-  days: "年中無休"
-  main_site: "https://peraichi.com/landing_pages/view/himawari-massage/"
+  phone: "{{ site.env.CLINIC_PHONE | default: '[CLINIC_PHONE環境変数を設定してください]' }}"
+  address: "{{ site.env.CLINIC_ADDRESS | default: '[CLINIC_ADDRESS環境変数を設定してください]' }}"
+  area: "{{ site.env.SERVICE_AREA | default: '[SERVICE_AREA環境変数を設定してください]' }}"
+  hours: "{{ site.env.BUSINESS_HOURS | default: '[BUSINESS_HOURS環境変数を設定してください]' }}"
+  days: "{{ site.env.BUSINESS_DAYS | default: '[BUSINESS_DAYS環境変数を設定してください]' }}"
+  main_site: "{{ site.env.MAIN_SITE_URL | default: '[MAIN_SITE_URL環境変数を設定してください]' }}"
 
 # 対応傷病
 conditions:
