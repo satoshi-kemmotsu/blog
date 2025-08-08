@@ -1,9 +1,9 @@
 ---
-layout: "post"
+layout: post
 title: "パーキンソン病でお悩みの方へ｜住吉区の訪問マッサージで症状緩和"
-date: "2025-08-08 06:19:57 +0000"
-categories: ["symptom_guide"]
-tags: ["訪問マッサージ", "医療保険", "大阪市", "在宅医療"]
+date: 2025-08-08 01:00:00 +0000
+categories: [symptom_guide]
+tags: ['パーキンソン病', '住吉区', '訪問マッサージ', '医療保険', '大阪市', '在宅医療']
 area: "住吉区"
 condition: "パーキンソン病"
 seo_optimized: true
