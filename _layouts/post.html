@@ -44,10 +44,10 @@ layout: default
     
     <!-- CTAセクション -->
     <div class="cta-section">
-      <h3>{{ site.clinic_info.name }}へのお問い合わせ</h3>
+      <h3>{{ site.data.business.company_name }}へのお問い合わせ</h3>
       <p>この症状でお悩みの方は、お気軽にご相談ください。医療保険適用で安心してご利用いただけます。</p>
       
-      <p><a href="{{ site.clinic_info.main_site }}" target="_blank" class="cta-button">詳細・医療保険適用でのお申込みはこちら</a></p>
+      <p><a href="{{ site.data.business.main_site_url }}" target="_blank" class="cta-button">詳細・医療保険適用でのお申込みはこちら</a></p>
     </div>
   </div>
 
@@ -60,11 +60,11 @@ layout: default
     "description": "{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | truncate: 160 | escape }}",
     "author": {
       "@type": "Organization",
-      "name": "{{ site.clinic_info.name }}"
+      "name": "{{ site.data.business.company_name }}"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "{{ site.clinic_info.name }}"
+      "name": "{{ site.data.business.company_name }}"
     },
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
