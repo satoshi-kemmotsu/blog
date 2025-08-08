@@ -23,9 +23,9 @@ permalink: /symptoms/
 
 症状でお悩みの方は、お気軽にご相談ください。
 
-- **電話:** {{ site.clinic_info.phone }}
-- **営業時間:** {{ site.clinic_info.hours }}
-- **対応エリア:** {{ site.clinic_info.area }}
+- **電話:** {{ site.data.business.phone }}
+- **営業時間:** {{ site.data.business.business_hours }}
+- **対応エリア:** {{ site.data.business.service_area }}
 
 <style>
 .symptoms-grid {

@@ -26,23 +26,9 @@ header_pages: []
 # google_analytics: "G-B9F26NS4W9"  # LP用タグ - ブログでは使用しない
 google_site_verification: # Google Search Console 認証
 
-# ビジネス情報（Jekyll Data Files・GAFAM憲法準拠）
-business_info:
-  company_name: "{{ site.data.business.company_name }}"
-  license: "{{ site.data.business.license }}"
-  phone_number: "{{ site.data.business.phone }}"
-  landing_page_url: "{{ site.data.business.main_site_url }}"
-  business_hours: "{{ site.data.business.business_hours }}"
-  
-# 医療・地域情報（Jekyll Data Files・SEO最適化）  
-clinic_info:
-  name: "{{ site.data.business.company_name }}"
-  phone: "{{ site.data.business.phone }}"
-  address: "{{ site.data.business.base_address }}"
-  area: "{{ site.data.business.service_area }}"
-  hours: "{{ site.data.business.business_hours }}"
-  days: "{{ site.data.business.business_days }}"
-  main_site: "{{ site.data.business.main_site_url }}"
+# ビジネス情報（直接参照・GAFAM憲法準拠）
+# 注意: _config.ymlではJekyll Data Files変数を直接参照できないため、
+# テンプレート内では site.data.business を使用してください
 
 # 対応傷病
 conditions:

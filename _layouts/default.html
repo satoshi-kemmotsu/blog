@@ -47,10 +47,10 @@
   {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "name": "{{ site.clinic_info.name }}",
+    "name": "{{ site.data.business.company_name }}",
     "description": "{{ site.description }}",
-    "url": "{{ site.clinic_info.main_site }}",
-    "telephone": "{{ site.clinic_info.phone }}",
+    "url": "{{ site.data.business.main_site_url }}",
+    "telephone": "{{ site.data.business.phone }}";
     "openingHours": "Mo-Su 08:00-21:00",
     "areaServed": {
       "@type": "City",
@@ -89,10 +89,10 @@
           <span></span>
         </button>
         <nav class="nav" id="nav">
-          <a href="{{ site.clinic_info.main_site }}" target="_blank">ホーム</a>
-          <a href="{{ site.clinic_info.main_site }}" target="_blank">当院について</a>
-          <a href="{{ site.clinic_info.main_site }}" target="_blank">お問い合わせ</a>
-          <a href="{{ site.clinic_info.main_site }}" target="_blank">公式サイト</a>
+          <a href="{{ site.data.business.main_site_url }}" target="_blank">ホーム</a>
+          <a href="{{ site.data.business.main_site_url }}" target="_blank">当院について</a>
+          <a href="{{ site.data.business.main_site_url }}" target="_blank">お問い合わせ</a>
+          <a href="{{ site.data.business.main_site_url }}" target="_blank">公式サイト</a>
         </nav>
       </div>
     </header>
@@ -106,13 +106,13 @@
     <footer class="site-footer">
       <div class="container">
         <div class="footer-info">
-          <h3><a href="{{ "/" | relative_url }}" class="footer-logo">🌻 {{ site.clinic_info.name }} 🌻</a></h3>
+          <h3><a href="{{ "/" | relative_url }}" class="footer-logo">🌻 {{ site.data.business.company_name }} 🌻</a></h3>
           <p>{{ site.description }}</p>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="container">
-          <p>&copy; {{ 'now' | date: "%Y" }} {{ site.clinic_info.name }}. All rights reserved.</p>
+          <p>&copy; {{ 'now' | date: "%Y" }} {{ site.data.business.company_name }}. All rights reserved.</p>
         </div>
       </div>
     </footer>
