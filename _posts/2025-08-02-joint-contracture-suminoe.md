@@ -1,7 +1,7 @@
 ---
 categories:
 - symptom_guide
-date: 2025-08-02 14:05:00 +0000
+date: 2025-08-02 10:00:00 +0000
 layout: post
 tags:
 - 関節拘縮
