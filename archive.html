@@ -34,53 +34,14 @@ permalink: /archive/
 </div>
 {% else %}
 
-<!-- 記事一覧（Jekyll自動ページネーション） -->
+<!-- 記事一覧（全記事表示） -->
 <div class="archive-list">
-  <h2>📅 記事一覧 ({{ paginator.page }}/{{ paginator.total_pages }}ページ)</h2>
+  <h2>📅 記事一覧 (全{{ site.posts.size }}件)</h2>
   
-  {% for post in paginator.posts %}
+  {% for post in site.posts %}
     {% include archive-item.html %}
   {% endfor %}
 </div>
-
-<!-- SEO最適化自動ページネーション（Jekyll paginate v1対応） -->
-{% if paginator.total_pages > 1 %}
-<nav class="pagination" aria-label="記事ページナビゲーション">
-  <div class="pagination-info">
-    <p>📄 全{{ paginator.total_posts }}件中 {{ paginator.page | minus: 1 | times: site.paginate | plus: 1 }}-{% if paginator.page == paginator.total_pages %}{{ paginator.total_posts }}{% else %}{{ paginator.page | times: site.paginate }}{% endif %}件目を表示</p>
-  </div>
-  
-  <div class="pagination-nav">
-    {% if paginator.previous_page %}
-      {% if paginator.previous_page == 1 %}
-        <a href="{{ '/archive/' | relative_url }}" class="pagination-btn prev" rel="prev">← 前のページ</a>
-      {% else %}
-        <a href="{{ '/archive/page' | append: paginator.previous_page | append: '/' | relative_url }}" class="pagination-btn prev" rel="prev">← 前のページ</a>
-      {% endif %}
-    {% else %}
-      <span class="pagination-btn prev disabled">← 前のページ</span>
-    {% endif %}
-    
-    <div class="pagination-numbers">
-      {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-          <span class="pagination-number current" aria-current="page">{{ page }}</span>
-        {% elsif page == 1 %}
-          <a href="{{ '/archive/' | relative_url }}" class="pagination-number">{{ page }}</a>
-        {% else %}
-          <a href="{{ '/archive/page' | append: page | append: '/' | relative_url }}" class="pagination-number">{{ page }}</a>
-        {% endif %}
-      {% endfor %}
-    </div>
-
-    {% if paginator.next_page %}
-      <a href="{{ '/archive/page' | append: paginator.next_page | append: '/' | relative_url }}" class="pagination-btn next" rel="next">次のページ →</a>
-    {% else %}
-      <span class="pagination-btn next disabled">次のページ →</span>
-    {% endif %}
-  </div>
-</nav>
-{% endif %}
 
 {% endif %}
 
