@@ -26,23 +26,23 @@ header_pages: []
 # google_analytics: "G-B9F26NS4W9"  # LP用タグ - ブログでは使用しない
 google_site_verification: # Google Search Console 認証
 
-# ビジネス情報（Jekyll動的参照用・GAFAM憲法準拠）
+# ビジネス情報（Jekyll Data Files・GAFAM憲法準拠）
 business_info:
-  company_name: "ひまわり治療院"
-  license: "あん摩マッサージ指圧師"
-  phone_number: "{{ site.env.CLINIC_PHONE | default: '[CLINIC_PHONE環境変数を設定してください]' }}"
-  landing_page_url: "{{ site.env.MAIN_SITE_URL | default: '[MAIN_SITE_URL環境変数を設定してください]' }}"
-  business_hours: "{{ site.env.BUSINESS_HOURS | default: '[BUSINESS_HOURS環境変数を設定してください]' }}"
+  company_name: "{{ site.data.business.company_name }}"
+  license: "{{ site.data.business.license }}"
+  phone_number: "{{ site.data.business.phone }}"
+  landing_page_url: "{{ site.data.business.main_site_url }}"
+  business_hours: "{{ site.data.business.business_hours }}"
   
-# 医療・地域情報（GAFAM憲法準拠・既存互換性維持）  
+# 医療・地域情報（Jekyll Data Files・SEO最適化）  
 clinic_info:
-  name: "ひまわり治療院"
-  phone: "{{ site.env.CLINIC_PHONE | default: '[CLINIC_PHONE環境変数を設定してください]' }}"
-  address: "{{ site.env.CLINIC_ADDRESS | default: '[CLINIC_ADDRESS環境変数を設定してください]' }}"
-  area: "{{ site.env.SERVICE_AREA | default: '[SERVICE_AREA環境変数を設定してください]' }}"
-  hours: "{{ site.env.BUSINESS_HOURS | default: '[BUSINESS_HOURS環境変数を設定してください]' }}"
-  days: "{{ site.env.BUSINESS_DAYS | default: '[BUSINESS_DAYS環境変数を設定してください]' }}"
-  main_site: "{{ site.env.MAIN_SITE_URL | default: '[MAIN_SITE_URL環境変数を設定してください]' }}"
+  name: "{{ site.data.business.company_name }}"
+  phone: "{{ site.data.business.phone }}"
+  address: "{{ site.data.business.base_address }}"
+  area: "{{ site.data.business.service_area }}"
+  hours: "{{ site.data.business.business_hours }}"
+  days: "{{ site.data.business.business_days }}"
+  main_site: "{{ site.data.business.main_site_url }}"
 
 # 対応傷病
 conditions:
