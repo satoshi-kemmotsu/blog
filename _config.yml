@@ -98,4 +98,4 @@ paginate_path: '/archive/page:num/'
 collections:
   posts:
     output: true
-    permalink: /:categories/:title/
+    permalink: /:categories/:title/# Force sitemap regeneration
