@@ -1,18 +1,18 @@
 ---
 layout: default
-title: "記事一覧 - 2ページ目 | ひまわり治療院ブログ"
-description: "大阪市での訪問マッサージ・在宅医療マッサージの専門記事一覧の2ページ目。症状解説、ケア事例、セルフケア、よくある質問の続きをご覧いただけます。"
-permalink: /archive/page2/
+title: "記事一覧 - 3ページ目 | ひまわり治療院ブログ"
+description: "大阪市での訪問マッサージ・在宅医療マッサージの専門記事一覧の3ページ目。症状解説、ケア事例、セルフケア、よくある質問の続きをご覧いただけます。"
+permalink: /archive/page3/
 ---
 
-<h1>📝 記事一覧 - 2ページ目</h1>
+<h1>📝 記事一覧 - 3ページ目</h1>
 
 大阪市での訪問マッサージ・在宅医療マッサージの専門記事の続きをご覧いただけます。
 
 <div class="archive-header">
   <p>📊 総記事数: <strong>{{ site.posts.size }}件</strong></p>
   <p>🔄 最終更新: <strong>{% if site.posts.first %}{{ site.posts.first.date | date: "%Y年%m月%d日" }}{% else %}記事準備中{% endif %}</strong></p>
-  <p>📄 このページ: <strong>21件目以降を表示</strong></p>
+  <p>📄 このページ: <strong>41件目以降を表示</strong></p>
 </div>
 
 <!-- カテゴリ別フィルターナビゲーション -->
@@ -27,18 +27,18 @@ permalink: /archive/page2/
   </div>
 </div>
 
-{% if site.posts.size <= 20 %}
+{% if site.posts.size <= 40 %}
 <div class="no-articles">
   <p>📄 このページに表示する記事はありません。</p>
-  <p><a href="/archive/">← 1ページ目に戻る</a></p>
+  <p><a href="/archive/page2/">← 2ページ目に戻る</a></p>
 </div>
 {% else %}
 
-<!-- 記事一覧 (21件目以降) -->
+<!-- 記事一覧 (41件目以降) -->
 <div class="archive-list">
-  <h2>📅 記事一覧 (21-40件)</h2>
-  {% assign skip_count = 20 %}
-  {% for post in site.posts offset:20 limit:20 %}
+  <h2>📅 記事一覧 (41-{{ site.posts.size }}件)</h2>
+  {% assign skip_count = 40 %}
+  {% for post in site.posts offset:40 %}
     {% include archive-item.html %}
   {% endfor %}
 </div>
@@ -47,33 +47,26 @@ permalink: /archive/page2/
 {% assign total_posts = site.posts.size %}
 <nav class="pagination" aria-label="記事ページナビゲーション">
   <div class="pagination-info">
-    <p>📄 全{{ total_posts }}件中 21-{% if total_posts < 40 %}{{ total_posts }}{% else %}40{% endif %}件目を表示</p>
+    <p>📄 全{{ total_posts }}件中 41-{{ total_posts }}件目を表示</p>
   </div>
   
   <div class="pagination-nav">
-    <a href="/archive/" class="pagination-btn prev" rel="prev">← 前のページ</a>
+    <a href="/archive/page2/" class="pagination-btn prev" rel="prev">← 前のページ</a>
     
     <div class="pagination-numbers">
       <a href="/archive/" class="pagination-number">1</a>
-      <span class="pagination-number current" aria-current="page">2</span>
-      {% if total_posts > 40 %}
-        <a href="/archive/page3/" class="pagination-number">3</a>
-      {% endif %}
+      <a href="/archive/page2/" class="pagination-number">2</a>
+      <span class="pagination-number current" aria-current="page">3</span>
       {% if total_posts > 60 %}
         <a href="/archive/page4/" class="pagination-number">4</a>
       {% endif %}
       {% if total_posts > 80 %}
         <a href="/archive/page5/" class="pagination-number">5</a>
       {% endif %}
-      {% if total_posts > 100 %}
-        <span class="pagination-ellipsis">...</span>
-        {% assign last_page = total_posts | divided_by: 20 | ceil %}
-        <a href="/archive/page{{ last_page }}/" class="pagination-number">{{ last_page }}</a>
-      {% endif %}
     </div>
 
-    {% if total_posts > 40 %}
-      <a href="/archive/page3/" class="pagination-btn next" rel="next">次のページ →</a>
+    {% if total_posts > 60 %}
+      <a href="/archive/page4/" class="pagination-btn next" rel="next">次のページ →</a>
     {% else %}
       <span class="pagination-btn next disabled">次のページ →</span>
     {% endif %}

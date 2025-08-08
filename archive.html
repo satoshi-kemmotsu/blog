@@ -12,7 +12,7 @@ permalink: /archive/
 <div class="archive-header">
   <p>📊 総記事数: <strong>{{ site.posts.size }}件</strong></p>
   <p>🔄 最終更新: <strong>{% if site.posts.first %}{{ site.posts.first.date | date: "%Y年%m月%d日" }}{% else %}記事準備中{% endif %}</strong></p>
-  <p>📄 このページ: <strong>最新20件を表示</strong></p>
+  <p>📄 このページ: <strong>{{ site.paginate }}件ずつ表示</strong></p>
 </div>
 
 <!-- カテゴリ別フィルターナビゲーション -->
@@ -34,48 +34,47 @@ permalink: /archive/
 </div>
 {% else %}
 
-<!-- 最新記事一覧 (1-20件) -->
+<!-- 記事一覧（Jekyll自動ページネーション） -->
 <div class="archive-list">
-  <h2>📅 最新記事 (1-20件)</h2>
-  {% for post in site.posts limit:20 %}
+  <h2>📅 記事一覧 ({{ paginator.page }}/{{ paginator.total_pages }}ページ)</h2>
+  
+  {% for post in paginator.posts %}
     {% include archive-item.html %}
   {% endfor %}
 </div>
 
-<!-- SEO最適化手動ページネーション -->
-{% assign total_posts = site.posts.size %}
-{% if total_posts > 20 %}
+<!-- SEO最適化自動ページネーション（Jekyll paginate v1対応） -->
+{% if paginator.total_pages > 1 %}
 <nav class="pagination" aria-label="記事ページナビゲーション">
   <div class="pagination-info">
-    <p>📄 全{{ total_posts }}件中 1-{% if total_posts < 20 %}{{ total_posts }}{% else %}20{% endif %}件目を表示</p>
+    <p>📄 全{{ paginator.total_posts }}件中 {{ paginator.page | minus: 1 | times: site.paginate | plus: 1 }}-{% if paginator.page == paginator.total_pages %}{{ paginator.total_posts }}{% else %}{{ paginator.page | times: site.paginate }}{% endif %}件目を表示</p>
   </div>
   
   <div class="pagination-nav">
-    <span class="pagination-btn prev disabled">← 前のページ</span>
+    {% if paginator.previous_page %}
+      {% if paginator.previous_page == 1 %}
+        <a href="{{ '/archive/' | relative_url }}" class="pagination-btn prev" rel="prev">← 前のページ</a>
+      {% else %}
+        <a href="{{ '/archive/page' | append: paginator.previous_page | append: '/' | relative_url }}" class="pagination-btn prev" rel="prev">← 前のページ</a>
+      {% endif %}
+    {% else %}
+      <span class="pagination-btn prev disabled">← 前のページ</span>
+    {% endif %}
     
     <div class="pagination-numbers">
-      <span class="pagination-number current" aria-current="page">1</span>
-      {% if total_posts > 20 %}
-        <a href="/archive/page2/" class="pagination-number">2</a>
-      {% endif %}
-      {% if total_posts > 40 %}
-        <a href="/archive/page3/" class="pagination-number">3</a>
-      {% endif %}
-      {% if total_posts > 60 %}
-        <a href="/archive/page4/" class="pagination-number">4</a>
-      {% endif %}
-      {% if total_posts > 80 %}
-        <a href="/archive/page5/" class="pagination-number">5</a>
-      {% endif %}
-      {% if total_posts > 100 %}
-        <span class="pagination-ellipsis">...</span>
-        {% assign last_page = total_posts | divided_by: 20 | ceil %}
-        <a href="/archive/page{{ last_page }}/" class="pagination-number">{{ last_page }}</a>
-      {% endif %}
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <span class="pagination-number current" aria-current="page">{{ page }}</span>
+        {% elsif page == 1 %}
+          <a href="{{ '/archive/' | relative_url }}" class="pagination-number">{{ page }}</a>
+        {% else %}
+          <a href="{{ '/archive/page' | append: page | append: '/' | relative_url }}" class="pagination-number">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
     </div>
 
-    {% if total_posts > 20 %}
-      <a href="/archive/page2/" class="pagination-btn next" rel="next">次のページ →</a>
+    {% if paginator.next_page %}
+      <a href="{{ '/archive/page' | append: paginator.next_page | append: '/' | relative_url }}" class="pagination-btn next" rel="next">次のページ →</a>
     {% else %}
       <span class="pagination-btn next disabled">次のページ →</span>
     {% endif %}
