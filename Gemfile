@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
-# GitHub Pages用のJekyll
-gem "github-pages", group: :jekyll_plugins
+# Jekyll本体（Netlify対応）
+gem "jekyll", "~> 4.3.0"
 
 # Windows環境用（必要に応じて）
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
