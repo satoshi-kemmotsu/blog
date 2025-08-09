@@ -1,0 +1,90 @@
+# ひまわり治療院 SEO ブログサイト設定
+title: "🌻 ひまわり治療院 🌻"
+description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心。"
+baseurl: ""
+url: "https://himawari-massage.jp"
+
+# SEO設定
+author: "ひまわり治療院"
+lang: "ja"
+locale: "ja_JP"
+
+# Jekyll設定
+markdown: kramdown
+highlighter: rouge
+# theme: minima  # テーマを無効化してカスタムレイアウトを使用
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# ナビゲーション（カスタムナビゲーションを使用するため無効化）
+header_pages: []
+
+# SEO強化
+# google_analytics: "G-B9F26NS4W9"  # LP用タグ - ブログでは使用しない
+google_site_verification: # Google Search Console 認証
+
+# ビジネス情報（直接参照・GAFAM憲法準拠）
+# 注意: _config.ymlではJekyll Data Files変数を直接参照できないため、
+# テンプレート内では site.data.business を使用してください
+
+# 対応傷病
+conditions:
+  - "脊柱管狭窄症"
+  - "脳梗塞" 
+  - "パーキンソン病"
+  - "頸椎症"
+  - "変形性関節症"
+  - "脊髄損傷"
+  - "脳血管障害"
+  - "腰椎症"
+  - "五十肩"
+  - "膝関節症"
+  - "リウマチ"
+  - "坐骨神経痛"
+  - "椎間板ヘルニア"
+  - "骨粗鬆症"
+  - "筋萎縮"
+  - "関節拘縮"
+
+# 対応地域
+areas:
+  - "浪速区"
+  - "中央区"
+  - "西区"
+  - "港区"
+  - "大正区"
+  - "天王寺区"
+  - "阿倍野区"
+  - "住之江区"
+  - "住吉区"
+  - "東住吉区"
+  - "平野区"
+  - "生野区"
+  - "東成区"
+  - "旭区"
+  - "城東区"
+  - "鶴見区"
+  - "淀川区"
+  - "西淀川区"
+  - "東淀川区"
+  - "北区"
+  - "福島区"
+  - "此花区"
+  - "西成区"
+  - "都島区"
+
+# Jekyll自動ページネーション設定（SEO最優先・GitHub Pages対応）
+paginate: 20
+paginate_path: '/archive/page:num/'
+    
+# 記事カテゴリとパーマリンク設定
+permalink: /:categories/:title/
+
+collections:
+  posts:
+    output: true
+
+# Force sitemap regeneration

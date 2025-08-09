@@ -1,15 +1,66 @@
 # Netlify設定ファイル
 [build]
   command = '''
+    # バックアップ作成
+    cp _config.yml _config.yml.emergency-backup
+    
+    # フェイルセーフ機能付き_config.yml生成
+    cat > _config.yml.new << 'CONFIGEOF'
+# 環境変数版_config.yml（フェイルセーフ付き）
+title: "${SITE_TITLE:-🌻 ひまわり治療院 🌻}"
+description: "${SITE_DESCRIPTION:-大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心。}"
+baseurl: ""
+url: "${SITE_URL:-https://himawari-massage.jp}"
+
+# SEO設定
+author: "${COMPANY_NAME:-ひまわり治療院}"
+lang: "ja"
+locale: "ja_JP"
+
+# Jekyll設定
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+header_pages: []
+google_site_verification:
+
+# 対応傷病（静的データ）
+conditions: ["脊柱管狭窄症", "脳梗塞", "パーキンソン病", "頸椎症", "変形性関節症", "脊髄損傷", "脳血管障害", "腰椎症", "五十肩", "膝関節症", "リウマチ", "坐骨神経痛", "椎間板ヘルニア", "骨粗鬆症", "筋萎縮", "関節拘縮"]
+
+# 対応地域（静的データ）  
+areas: ["浪速区", "中央区", "西区", "港区", "大正区", "天王寺区", "阿倍野区", "住之江区", "住吉区", "東住吉区", "平野区", "生野区", "東成区", "旭区", "城東区", "鶴見区", "淀川区", "西淀川区", "東淀川区", "北区", "福島区", "此花区", "西成区", "都島区"]
+
+paginate: 20
+paginate_path: '/archive/page:num/'
+permalink: /:categories/:title/
+
+collections:
+  posts:
+    output: true
+CONFIGEOF
+
+    # YAML構文チェック
+    ruby -e "require 'yaml'; YAML.load_file('_config.yml.new')" || { echo "YAML構文エラー検出 - バックアップから復旧"; cp _config.yml.emergency-backup _config.yml; exit 1; }
+    
+    # 正常なら適用
+    mv _config.yml.new _config.yml
+    
+    # business.yml生成
     echo "# 環境変数からビジネス設定を生成" > _data/business.yml
-    echo "company_name: \"$COMPANY_NAME\"" >> _data/business.yml
-    echo "license: \"$LICENSE\"" >> _data/business.yml
-    echo "phone: \"$CLINIC_PHONE\"" >> _data/business.yml
-    echo "business_hours: \"$BUSINESS_HOURS\"" >> _data/business.yml
-    echo "business_days: \"$BUSINESS_DAYS\"" >> _data/business.yml
-    echo "main_site_url: \"$MAIN_SITE_URL\"" >> _data/business.yml
-    echo "service_area: \"$SERVICE_AREA\"" >> _data/business.yml
-    echo "base_address: \"$BASE_ADDRESS\"" >> _data/business.yml
+    echo "company_name: \"${COMPANY_NAME:-ひまわり治療院}\"" >> _data/business.yml
+    echo "license: \"${LICENSE:-あん摩マッサージ指圧師}\"" >> _data/business.yml
+    echo "phone: \"${CLINIC_PHONE:-080-4769-0101}\"" >> _data/business.yml
+    echo "business_hours: \"${BUSINESS_HOURS:-毎日8:00-21:00営業}\"" >> _data/business.yml
+    echo "business_days: \"${BUSINESS_DAYS:-年中無休}\"" >> _data/business.yml
+    echo "main_site_url: \"${MAIN_SITE_URL:-https://peraichi.com/landing_pages/view/himawari-massage/}\"" >> _data/business.yml
+    echo "service_area: \"${SERVICE_AREA:-大阪市内全域}\"" >> _data/business.yml
+    echo "base_address: \"${BASE_ADDRESS:-大阪市浪速区}\"" >> _data/business.yml
+    
     bundle exec jekyll build
   '''
   publish = "_site"
