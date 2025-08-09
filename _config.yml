@@ -13,6 +13,7 @@ locale: "ja_JP"
 # Jekyll設定
 markdown: kramdown
 highlighter: rouge
+future: true  # 未来日付の記事も表示（UTC/JST時差対策）
 # theme: minima  # テーマを無効化してカスタムレイアウトを使用
 plugins:
   - jekyll-feed
