@@ -20,6 +20,7 @@ locale: "ja_JP"
 # Jekyll設定
 markdown: kramdown
 highlighter: rouge
+future: true
 plugins:
   - jekyll-feed
   - jekyll-sitemap
