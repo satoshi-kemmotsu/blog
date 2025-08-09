@@ -1,6 +1,17 @@
 # Netlify設定ファイル
 [build]
-  command = "envsubst < _data/business.yml > _data/business_temp.yml && mv _data/business_temp.yml _data/business.yml && bundle exec jekyll build"
+  command = '''
+    echo "# 環境変数からビジネス設定を生成" > _data/business.yml
+    echo "company_name: \"$COMPANY_NAME\"" >> _data/business.yml
+    echo "license: \"$LICENSE\"" >> _data/business.yml
+    echo "phone: \"$CLINIC_PHONE\"" >> _data/business.yml
+    echo "business_hours: \"$BUSINESS_HOURS\"" >> _data/business.yml
+    echo "business_days: \"$BUSINESS_DAYS\"" >> _data/business.yml
+    echo "main_site_url: \"$MAIN_SITE_URL\"" >> _data/business.yml
+    echo "service_area: \"$SERVICE_AREA\"" >> _data/business.yml
+    echo "base_address: \"$BASE_ADDRESS\"" >> _data/business.yml
+    bundle exec jekyll build
+  '''
   publish = "_site"
   
 [build.environment]
