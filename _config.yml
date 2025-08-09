@@ -82,8 +82,8 @@ areas:
 paginate: 20
 paginate_path: '/archive/page:num/'
     
-# 記事カテゴリとパーマリンク設定
-permalink: /:categories/:title/
+# 記事カテゴリとパーマリンク設定（日本語対応版）
+permalink: /:year/:month/:day/:title.html
 
 collections:
   posts:

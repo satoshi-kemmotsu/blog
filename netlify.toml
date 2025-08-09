@@ -38,7 +38,7 @@ areas: ["浪速区", "中央区", "西区", "港区", "大正区", "天王寺区
 
 paginate: 20
 paginate_path: '/archive/page:num/'
-permalink: /:categories/:title/
+permalink: /:year/:month/:day/:title.html
 
 collections:
   posts:
