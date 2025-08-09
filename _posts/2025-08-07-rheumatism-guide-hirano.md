@@ -2,8 +2,8 @@
 layout: "post"
 title: "関節リウマチでお悩みの方へ｜平野区の訪問マッサージで症状緩和"
 date: "2025-08-07 09:00:00 +0000"
-categories: [symptom_guide]
-tags: ['リウマチ', '平野区', '訪問マッサージ', '医療保険適用', '大阪市']
+categories: ["symptom_guide"]
+tags: ["リウマチ", "平野区", "訪問マッサージ", "医療保険適用", "大阪市"]
 
 condition: "リウマチ"
 area: "平野区"
