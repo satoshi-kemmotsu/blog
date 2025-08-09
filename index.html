@@ -1,10 +1,10 @@
 ---
 layout: home
-title: "🌻 ひまわり治療院 🌻"
+title: "🌻 {{ site.data.business.company_name }} 🌻"
 description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心料金。"
 ---
 
-<!-- ひまわり治療院 SEO強化サイト -->
+<!-- {{ site.data.business.company_name }} SEO強化サイト -->
 <div class="hero-section">
   <h1>🌻 大阪市の訪問マッサージ・在宅医療マッサージ</h1>
   <p class="hero-description">
@@ -13,11 +13,11 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   </p>
   
   <div class="cta-buttons">
-    <a href="https://peraichi.com/landing_pages/view/himawari-massage/" class="cta-primary">
+    <a href="{{ site.data.business.main_site_url }}" class="cta-primary">
       📞 今すぐ相談・予約
     </a>
-    <a href="tel:080-4769-0101" class="cta-secondary">
-      📱 080-4769-0101
+    <a href="tel:{{ site.data.business.phone }}" class="cta-secondary">
+      📱 {{ site.data.business.phone }}
     </a>
   </div>
 </div>
