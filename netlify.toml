@@ -1,0 +1,23 @@
+# Netlify設定ファイル
+[build]
+  command = "bundle exec jekyll build"
+  publish = "_site"
+  
+[build.environment]
+  JEKYLL_ENV = "production"
+  NODE_VERSION = "18"
+  RUBY_VERSION = "3.1.0"
+
+# 環境変数処理の設定
+[build.processing]
+  skip_processing = false
+
+# Jekyll 専用設定
+[plugins]
+  package = "@netlify/plugin-jekyll-cache"
+
+# リダイレクト設定（将来的に使用）
+[[redirects]]
+  from = "/old-path/*"
+  to = "/new-path/:splat"
+  status = 301

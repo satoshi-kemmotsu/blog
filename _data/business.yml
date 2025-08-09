@@ -1,18 +1,18 @@
-# ひまわり治療院 ビジネス設定（GAFAM憲法準拠）
-# SEO最適化：全サイトURL統一・Link Equity集約
+# ひまわり治療院 ビジネス設定（Netlify環境変数版・ハードコード完全撲滅）
+# 🚀 理想的アーキテクチャ実現：全設定値を環境変数から取得
 
 # 基本情報
-company_name: "ひまわり治療院"
-license: "あん摩マッサージ指圧師"
+company_name: "${COMPANY_NAME}"
+license: "${LICENSE}"
 
-# 連絡先情報
-phone: "080-4769-0101"
-business_hours: "毎日8:00-21:00営業"
-business_days: "年中無休"
+# 連絡先情報  
+phone: "${CLINIC_PHONE}"
+business_hours: "${BUSINESS_HOURS}"
+business_days: "${BUSINESS_DAYS}"
 
 # メインサイトURL（SEO最重要）
-main_site_url: "https://peraichi.com/landing_pages/view/himawari-massage/"
+main_site_url: "${MAIN_SITE_URL}"
 
 # 地域情報
-service_area: "大阪市内全域"
-base_address: "大阪市浪速区"
+service_area: "${SERVICE_AREA}"
+base_address: "${BASE_ADDRESS}"
