@@ -1,18 +1,2 @@
 # ひまわり治療院 ビジネス設定（Netlify環境変数版・ハードコード完全撲滅）
-# 🚀 理想的アーキテクチャ実現：全設定値を環境変数から取得
-
-# 基本情報
-company_name: "${COMPANY_NAME}"
-license: "${LICENSE}"
-
-# 連絡先情報  
-phone: "${CLINIC_PHONE}"
-business_hours: "${BUSINESS_HOURS}"
-business_days: "${BUSINESS_DAYS}"
-
-# メインサイトURL（SEO最重要）
-main_site_url: "${MAIN_SITE_URL}"
-
-# 地域情報
-service_area: "${SERVICE_AREA}"
-base_address: "${BASE_ADDRESS}"
+# 🚀 理想的アーキテクチャ実現：ビルド時に環境変数から動的生成
