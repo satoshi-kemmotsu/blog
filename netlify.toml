@@ -1,6 +1,6 @@
 # Netlify設定ファイル
 [build]
-  command = "bundle exec jekyll build"
+  command = "envsubst < _data/business.yml > _data/business_temp.yml && mv _data/business_temp.yml _data/business.yml && bundle exec jekyll build"
   publish = "_site"
   
 [build.environment]
@@ -13,7 +13,7 @@
   skip_processing = false
 
 # Jekyll 専用設定
-[plugins]
+[[plugins]]
   package = "@netlify/plugin-jekyll-cache"
 
 # リダイレクト設定（将来的に使用）
