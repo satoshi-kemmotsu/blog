@@ -1,6 +1,8 @@
 # ひまわり治療院 ビジネス設定
 company_name: "ひまわり治療院"
 license: "厚生労働省認定・医療保険適用の訪問医療マッサージ専門院"
-phone_number: "080-4769-0101"
+phone: "080-4769-0101"  # Jekyll テンプレートと一致
+phone_number: "080-4769-0101"  # 後方互換性のため残す
 main_site_url: "https://peraichi.com/landing_pages/view/himawari-massage"
 business_hours: "8:00-21:00（毎日）"
+service_area: "大阪市内全域"  # 不足していたフィールドを追加
