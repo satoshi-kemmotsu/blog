@@ -3,6 +3,10 @@ source "https://rubygems.org"
 # Jekyll本体（Netlify対応）
 gem "jekyll", "~> 4.3.0"
 
+# Ruby 3.4対応の必須gem
+gem "csv"
+gem "logger"
+
 # Windows環境用（必要に応じて）
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
