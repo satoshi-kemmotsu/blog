@@ -6,7 +6,7 @@
 [build.environment]
   JEKYLL_ENV = "production"
   NODE_VERSION = "18"
-  RUBY_VERSION = "3.1.0"
+  RUBY_VERSION = "3.2.0"
 
 # 環境変数処理の設定
 [build.processing]
