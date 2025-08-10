@@ -1,12 +1,4 @@
 source "https://rubygems.org"
 
-# 最小限のJekyll構成
-gem "jekyll", "~> 4.2.0"
-gem "minima", "~> 2.5"
-
-# 必須プラグインのみ
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-sitemap"
-  gem "jekyll-seo-tag"
-end
+# 最小限のJekyll - バージョン固定
+gem "jekyll", "4.2.0"

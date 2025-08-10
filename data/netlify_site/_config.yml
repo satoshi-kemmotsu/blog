@@ -1,4 +1,4 @@
-# ひまわり治療院 SEO ブログサイト設定
+# ひまわり治療院 SEO ブログサイト設定 - 最小構成
 title: "🌻 ひまわり治療院 🌻"
 description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心。"
 baseurl: ""
@@ -9,15 +9,9 @@ author: "ひまわり治療院"
 lang: "ja"
 locale: "ja_JP"
 
-# Jekyll設定
+# Jekyll設定 - 最小構成
 markdown: kramdown
 highlighter: rouge
-# theme: minima  # テーマを無効化してカスタムレイアウトを使用
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jekyll-paginate
 
 # ナビゲーション（カスタムナビゲーションを使用するため無効化）
 header_pages: []

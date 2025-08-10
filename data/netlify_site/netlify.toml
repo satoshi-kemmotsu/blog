@@ -1,12 +1,13 @@
 # Netlify設定ファイル
 [build]
-  command = "gem install jekyll bundler && bundle install && bundle exec jekyll build"
+  command = "echo 'Starting build...' && ruby --version && gem --version && gem install jekyll -v 4.2.0 --no-document && gem install bundler --no-document && bundle config set --local path 'vendor/bundle' && bundle install --verbose && echo 'Dependencies installed, building site...' && bundle exec jekyll build --verbose"
   publish = "_site"
   
 [build.environment]
   JEKYLL_ENV = "production"
   NODE_VERSION = "18"
   RUBY_VERSION = "3.2.0"
+  BUNDLE_CACHE = "false"
 
 # 環境変数処理の設定
 [build.processing]
