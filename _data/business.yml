@@ -1,2 +1,6 @@
-# ひまわり治療院 ビジネス設定（Netlify環境変数版・ハードコード完全撲滅）
-# 🚀 理想的アーキテクチャ実現：ビルド時に環境変数から動的生成
+# ひまわり治療院 ビジネス設定
+company_name: "ひまわり治療院"
+license: "厚生労働省認定・医療保険適用の訪問医療マッサージ専門院"
+phone_number: "080-4769-0101"
+main_site_url: "https://peraichi.com/landing_pages/view/himawari-massage"
+business_hours: "8:00-21:00（毎日）"
