@@ -8,9 +8,8 @@ gem "mutex_m" # Ruby 3.4対応
 gem "fiddle" # Ruby 3.4対応
 gem "ostruct" # Ruby 3.4対応
 gem "csv"
-gem "logger"
+gem "logger"  
 gem "base64"
-gem "this-gem-does-not-exist-anywhere"  # Netlify Test Error
 
 # Windows環境用（必要に応じて）
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
