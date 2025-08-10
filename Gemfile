@@ -4,6 +4,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.3.0"
 
 # Ruby 3.4対応の必須gem（デフォルトから除外されたgem群）
+gem "fiddle" # Ruby 3.4対応
 gem "ostruct" # Ruby 3.4対応
 gem "csv"
 gem "logger"
