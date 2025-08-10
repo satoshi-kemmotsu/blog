@@ -1,0 +1,485 @@
+---
+layout: default
+title: "記事一覧 | ひまわり治療院ブログ"
+description: "大阪市での訪問マッサージ・在宅医療マッサージの専門記事一覧。症状解説、ケア事例、セルフケア、よくある質問を分かりやすく整理してご覧いただけます。"
+permalink: /archive/
+---
+
+<h1>📝 記事一覧</h1>
+
+大阪市での訪問マッサージ・在宅医療マッサージの専門記事を見やすく整理してご覧いただけます。
+
+<div class="archive-header">
+  <p>📊 総記事数: <strong>{{ site.posts.size }}件</strong></p>
+  <p>🔄 最終更新: <strong>{% if site.posts.first %}{{ site.posts.first.date | date: "%Y年%m月%d日" }}{% else %}記事準備中{% endif %}</strong></p>
+  <p>📄 このページ: <strong>{{ site.paginate }}件ずつ表示</strong></p>
+</div>
+
+<!-- カテゴリ別フィルターナビゲーション -->
+<div class="category-filter">
+  <h3>🏷️ カテゴリ別記事</h3>
+  <div class="filter-buttons">
+    <a href="/archive/" class="filter-btn active">📋 すべて ({{ site.posts.size }})</a>
+    <a href="/symptoms/" class="filter-btn">🩺 症状解説 ({% assign symptom_posts = site.posts | where: 'categories', 'symptom_guide' %}{{ symptom_posts.size }})</a>
+    <a href="/archive/cases/" class="filter-btn">📊 ケア事例 ({% assign case_posts = site.posts | where: 'categories', 'case_study' %}{{ case_posts.size }})</a>
+    <a href="/archive/prevention/" class="filter-btn">💪 セルフケア ({% assign prevention_posts = site.posts | where: 'categories', 'prevention' %}{{ prevention_posts.size }})</a>
+    <a href="/archive/qa/" class="filter-btn">❓ よくある質問 ({% assign qa_posts = site.posts | where: 'categories', 'qa' %}{{ qa_posts.size }})</a>
+  </div>
+</div>
+
+{% if site.posts.size == 0 %}
+<div class="no-articles">
+  <p>🌻 記事準備中です。まもなく更新予定です！</p>
+  <p><a href="/">← トップページに戻る</a></p>
+</div>
+{% else %}
+
+<!-- 記事一覧（全記事表示） -->
+<div class="archive-list">
+  <h2>📅 記事一覧 (全{{ site.posts.size }}件)</h2>
+  
+  {% for post in site.posts %}
+    {% include archive-item.html %}
+  {% endfor %}
+</div>
+
+{% endif %}
+
+<hr>
+
+<h2>📍 地域別記事検索</h2>
+
+<div class="area-filter">
+  <h3>🗾 大阪市24区別記事</h3>
+  <div class="area-grid">
+    {% assign areas = "中央区,北区,西区,港区,大正区,天王寺区,浪速区,西成区,阿倍野区,住吉区,東住吉区,住之江区,平野区,生野区,東成区,旭区,城東区,鶴見区,淀川区,西淀川区,東淀川区,福島区,此花区,都島区" | split: "," %}
+    {% for area in areas %}
+      {% assign area_posts = site.posts | where_exp: "post", "post.tags contains area" %}
+      {% if area_posts.size > 0 %}
+        <a href="/areas/{{ area }}/" class="area-tag active">{{ area }} ({{ area_posts.size }})</a>
+      {% else %}
+        <span class="area-tag inactive">{{ area }} (0)</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+/* ヘッダースタイル */
+.archive-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  text-align: center;
+  border-left: 5px solid #FFB6C1;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.archive-header p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #495057;
+}
+
+.archive-header strong {
+  color: #DB7093;
+  font-weight: bold;
+}
+
+/* カテゴリフィルター */
+.category-filter {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.category-filter h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  display: inline-block;
+  background: #f8f9fa;
+  color: #666;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 2px solid #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
+  color: white;
+  border-color: #FFB6C1;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+}
+
+/* 記事一覧 */
+.archive-list {
+  margin: 30px 0;
+}
+
+.archive-list h2 {
+  color: #333;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #FFB6C1;
+  font-size: 1.5rem;
+}
+
+.archive-item {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.archive-item:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  border-color: #FFB6C1;
+}
+
+.archive-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.archive-meta time {
+  color: #666;
+  font-weight: bold;
+}
+
+.category {
+  background: #FFB6C1;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.archive-item h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.archive-item h3 a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.archive-item h3 a:hover {
+  color: #DB7093;
+}
+
+.excerpt {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 15px;
+}
+
+.tag {
+  background: #e9ecef;
+  color: #495057;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background: #FFB6C1;
+  color: white;
+}
+
+/* SEO最適化ページネーション */
+.pagination {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.pagination-info {
+  background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-left: 4px solid #6c757d;
+}
+
+.pagination-info p {
+  margin: 0;
+  color: #495057;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.pagination-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pagination-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #fff;
+  color: #666;
+  text-decoration: none;
+  border: 2px solid #dee2e6;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.pagination-btn:not(.disabled):hover {
+  background: #FFB6C1;
+  color: white;
+  border-color: #FFB6C1;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+}
+
+.pagination-btn.disabled {
+  background: #f8f9fa;
+  color: #ccc;
+  cursor: not-allowed;
+  border-color: #f8f9fa;
+}
+
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination-number {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  line-height: 40px;
+  text-align: center;
+  background: #fff;
+  color: #666;
+  text-decoration: none;
+  border: 2px solid #dee2e6;
+  border-radius: 50%;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.pagination-number:hover {
+  background: #FFB6C1;
+  color: white;
+  border-color: #FFB6C1;
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.pagination-number.current {
+  background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
+  color: white;
+  border-color: #FFB6C1;
+  transform: scale(1.1);
+  box-shadow: 0 3px 10px rgba(255, 182, 193, 0.4);
+}
+
+.pagination-ellipsis {
+  color: #999;
+  font-weight: bold;
+  padding: 0 8px;
+  font-size: 1.2rem;
+}
+
+/* 地域フィルター */
+.area-filter {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 30px 0;
+  border-left: 5px solid #28a745;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.area-filter h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.area-tag {
+  display: inline-block;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.area-tag.active {
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.area-tag.active:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+  text-decoration: none;
+}
+
+.area-tag.inactive {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: default;
+}
+
+.no-articles {
+  background: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.no-articles p {
+  margin: 10px 0;
+  color: #856404;
+  font-weight: bold;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .filter-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filter-btn {
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
+  }
+  
+  .pagination-nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .pagination-numbers {
+    order: 1;
+    justify-content: center;
+  }
+  
+  .pagination-btn.prev {
+    order: 0;
+  }
+  
+  .pagination-btn.next {
+    order: 2;
+  }
+  
+  .area-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+  
+  .area-tag {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+  
+  .archive-item {
+    padding: 20px;
+  }
+  
+  .archive-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .archive-header, .category-filter, .area-filter {
+    padding: 20px;
+  }
+  
+  .pagination-btn {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+  
+  .pagination-number {
+    width: 38px;
+    height: 38px;
+    line-height: 34px;
+    font-size: 0.85rem;
+  }
+  
+  .area-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .archive-item {
+    padding: 15px;
+  }
+  
+  .archive-item h3 {
+    font-size: 1.1rem;
+  }
+}
+</style>

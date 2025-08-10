@@ -1,0 +1,284 @@
+---
+layout: default
+---
+
+{% include breadcrumb.html %}
+
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%Y年%m月%d日" }}
+      </time>
+      {% if page.categories %}
+        • カテゴリ: 
+        {% for category in page.categories %}
+          {% if category == 'symptom_guide' %}
+            <span class="category">症状解説</span>
+          {% elsif category == 'prevention' %}
+            <span class="category">セルフケア</span>
+          {% elsif category == 'qa' %}
+            <span class="category">よくある質問</span>
+          {% elsif category == 'case_study' %}
+            <span class="category">ケア事例</span>
+          {% else %}
+            <span class="category">{{ category }}</span>
+          {% endif %}{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </p>
+    
+    {% if page.tags %}
+    <div class="post-tags">
+      タグ: 
+      {% for tag in page.tags %}
+        <span class="tag">#{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+    
+    <!-- CTAセクション -->
+    <div class="cta-section">
+      <h3>{{ site.data.business.company_name | default: "ひまわり治療院" }}へのお問い合わせ</h3>
+      <p>この症状でお悩みの方は、お気軽にご相談ください。医療保険適用で安心してご利用いただけます。</p>
+      
+      <p><a href="{{ site.data.business.main_site_url | default: 'https://peraichi.com/landing_pages/view/himawari-massage' }}" target="_blank" class="cta-button">詳細・医療保険適用でのお申込みはこちら</a></p>
+    </div>
+  </div>
+
+  <!-- JSON-LD 記事用構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ page.title | escape }}",
+    "description": "{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | truncate: 160 | escape }}",
+    "author": {
+      "@type": "Organization",
+      "name": "{{ site.data.business.company_name }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ site.data.business.company_name }}"
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "{% if page.tags %}{{ page.tags | first }}{% endif %}"
+    }
+  }
+  </script>
+</article>
+
+<!-- 関連記事 -->
+<div class="related-posts">
+  <h3>関連記事</h3>
+  
+  <!-- 同一症状×他地域記事 -->
+  {% if page.tags and page.tags.size > 0 %}
+    {% assign same_condition_posts = site.posts | where_exp: "post", "post.tags contains page.tags[0]" %}
+    {% assign same_condition_filtered = same_condition_posts | where_exp: "post", "post.url != page.url" %}
+    {% if same_condition_filtered.size > 0 %}
+      <div class="related-section">
+        <h4>{{ page.tags[0] }}に関する他地域の記事</h4>
+        <ul class="related-list">
+          {% for post in same_condition_filtered limit:2 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- 同一地域×他症状記事 -->
+  {% if page.tags and page.tags.size > 1 %}
+    {% assign same_area_posts = site.posts | where_exp: "post", "post.tags contains page.tags[1]" %}
+    {% assign same_area_filtered = same_area_posts | where_exp: "post", "post.url != page.url" %}
+    {% assign same_area_different_condition = same_area_filtered | where_exp: "post", "post.tags[0] != page.tags[0]" %}
+    {% if same_area_different_condition.size > 0 %}
+      <div class="related-section">
+        <h4>{{ page.tags[1] }}の他の症状記事</h4>
+        <ul class="related-list">
+          {% for post in same_area_different_condition limit:2 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- 同一カテゴリ記事 -->
+  {% if page.categories and page.categories.size > 0 %}
+    {% assign same_category_posts = site.posts | where: "categories", page.categories[0] %}
+    {% assign same_category_filtered = same_category_posts | where_exp: "post", "post.url != page.url" %}
+    {% if same_category_filtered.size > 0 %}
+      <div class="related-section">
+        <h4>同じカテゴリの記事</h4>
+        <ul class="related-list">
+          {% for post in same_category_filtered limit:2 %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <!-- フォールバック：最新記事 -->
+  {% assign total_related = 0 %}
+  {% if page.tags and page.tags.size > 0 %}
+    {% assign same_condition_filtered = site.posts | where_exp: "post", "post.tags contains page.tags[0]" | where_exp: "post", "post.url != page.url" %}
+    {% assign total_related = total_related | plus: same_condition_filtered.size %}
+  {% endif %}
+  {% if page.tags and page.tags.size > 1 %}
+    {% assign same_area_filtered = site.posts | where_exp: "post", "post.tags contains page.tags[1]" | where_exp: "post", "post.url != page.url" %}
+    {% assign same_area_different_condition = same_area_filtered | where_exp: "post", "post.tags[0] != page.tags[0]" %}
+    {% assign total_related = total_related | plus: same_area_different_condition.size %}
+  {% endif %}
+  
+  {% if total_related < 2 %}
+    <div class="related-section">
+      <h4>最新記事</h4>
+      <ul class="related-list">
+        {% for post in site.posts limit:3 %}
+          {% unless post.url == page.url %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+          {% endunless %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</div>
+
+<style>
+.related-posts {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 40px 0;
+  border-left: 4px solid #FFB6C1;
+}
+
+.related-posts h3 {
+  color: #DB7093;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.related-section {
+  margin-bottom: 25px;
+}
+
+.related-section:last-child {
+  margin-bottom: 0;
+}
+
+.related-section h4 {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 5px;
+}
+
+.related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-list li {
+  margin-bottom: 8px;
+}
+
+.related-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.related-list a:hover {
+  background: #FFB6C1;
+  color: white;
+  transform: translateX(5px);
+  text-decoration: none;
+}
+
+.related-meta {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.related-list a:hover .related-meta {
+  color: rgba(255,255,255,0.8);
+}
+
+.index-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.index-links a {
+  background: #FFB6C1;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.index-links a:hover {
+  background: #DB7093;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .related-posts {
+    padding: 20px;
+    margin: 30px 0;
+  }
+  
+  .related-list a {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+  }
+  
+  .index-links {
+    flex-direction: column;
+  }
+  
+  .index-links a {
+    text-align: center;
+  }
+}
+</style>

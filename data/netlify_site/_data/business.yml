@@ -1,0 +1,15 @@
+# ひまわり治療院 ビジネス設定（ハードコードフリー・デフォルト値付き）
+# Jekyll環境変数対応：Jekyllは${VAR}展開をサポートしないため、デフォルト値を設定
+
+# 基本情報（テンプレートでdefaultフィルタ使用）
+company_name: "ひまわり治療院"
+license: "厚生労働省認定・医療保険適用の訪問医療マッサージ専門院"
+
+# 連絡先情報  
+phone_number: "080-4769-0101"
+business_hours: "8:00-21:00（毎日）"
+
+# メインサイトURL（SEO最重要）
+main_site_url: "https://peraichi.com/landing_pages/view/himawari-massage"
+
+# 注意：Netlifyの環境変数で上書き可能（将来的にsite.env経由で実装予定）

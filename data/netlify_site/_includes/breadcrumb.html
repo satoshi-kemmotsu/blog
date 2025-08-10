@@ -1,0 +1,115 @@
+<!-- パンくずリスト -->
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="{{ '/' | relative_url }}" itemprop="item">
+        <span itemprop="name">ホーム</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    
+    {% if page.categories and page.categories.size > 0 %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/archive#category-{{ page.categories[0] }}" itemprop="item">
+        <span itemprop="name">
+          {% if page.categories[0] == 'symptom_guide' %}症状解説
+          {% elsif page.categories[0] == 'prevention' %}セルフケア
+          {% elsif page.categories[0] == 'qa' %}よくある質問
+          {% elsif page.categories[0] == 'case_study' %}ケア事例
+          {% else %}{{ page.categories[0] }}
+          {% endif %}
+        </span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    {% endif %}
+    
+    {% if page.condition %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/symptoms/{{ page.condition }}/" itemprop="item">
+        <span itemprop="name">{{ page.condition }}</span>
+      </a>
+      <meta itemprop="position" content="3" />
+    </li>
+    {% endif %}
+    
+    {% if page.area %}
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/areas/{{ page.area }}/" itemprop="item">
+        <span itemprop="name">{{ page.area }}</span>
+      </a>
+      <meta itemprop="position" content="{% if page.condition %}4{% else %}3{% endif %}" />
+    </li>
+    {% endif %}
+    
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.title }}</span>
+      <meta itemprop="position" content="{% if page.condition and page.area %}5{% elsif page.condition or page.area %}4{% else %}3{% endif %}" />
+    </li>
+  </ol>
+</nav>
+
+<style>
+.breadcrumb {
+  margin: 20px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: ">";
+  margin: 0 8px;
+  color: #6c757d;
+}
+
+.breadcrumb a {
+  color: #007cba;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.breadcrumb a:hover {
+  color: #005a87;
+  text-decoration: underline;
+}
+
+.breadcrumb li:last-child span {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb ol {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .breadcrumb li:not(:last-child)::after {
+    display: none;
+  }
+  
+  .breadcrumb li {
+    width: 100%;
+  }
+  
+  .breadcrumb a, .breadcrumb span {
+    font-size: 0.85rem;
+  }
+}
+</style>

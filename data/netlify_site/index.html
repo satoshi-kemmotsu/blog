@@ -1,0 +1,331 @@
+---
+layout: home
+title: "🌻 ひまわり治療院 🌻"
+description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心料金。"
+---
+
+<!-- ひまわり治療院 SEO強化サイト -->
+<div class="hero-section">
+  <h1>🌻 大阪市の訪問マッサージ・在宅医療マッサージ</h1>
+  <p class="hero-description">
+    <strong>医療保険適用</strong>で安心の訪問マッサージサービス。<br>
+    脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に専門対応。
+  </p>
+  
+  <div class="cta-buttons">
+    <a href="https://peraichi.com/landing_pages/view/himawari-massage/" class="cta-primary">
+      📞 今すぐ相談・予約
+    </a>
+    <a href="tel:080-4769-0101" class="cta-secondary">
+      📱 080-4769-0101
+    </a>
+  </div>
+</div>
+
+<!-- サービス概要 -->
+<section class="service-overview">
+  <h2>🏥 医療保険適用の安心サービス</h2>
+  <div class="service-grid">
+    <div class="service-item">
+      <h3>💰 安心の料金体系</h3>
+      <p>医療保険適用で<strong>1回450円</strong>（1割負担時）から。国が定める安心料金でご利用いただけます。</p>
+    </div>
+    <div class="service-item">
+      <h3>🚗 大阪市内全域対応</h3>
+      <p>浪速区を中心に大阪市内24区すべてに対応。お住まいの地域まで専門スタッフがお伺いします。</p>
+    </div>
+    <div class="service-item">
+      <h3>📋 16の専門傷病対応</h3>
+      <p>脊柱管狭窄症、脳梗塞、パーキンソン病など、幅広い傷病に対応した専門的なケアを提供。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 対応傷病一覧 -->
+<section class="conditions-section">
+  <h2>🩺 対応傷病一覧</h2>
+  <div class="conditions-grid">
+    {% for condition in site.conditions %}
+      {% assign condition_posts = site.posts | where: "condition", condition %}
+      {% if condition_posts.size > 0 %}
+        <a href="/symptoms/{{ condition }}/" class="condition-tag active">{{ condition }} <span class="count">({{ condition_posts.size }}記事)</span></a>
+      {% else %}
+        <a href="/symptoms/{{ condition }}/" class="condition-tag">{{ condition }} <span class="count">(準備中)</span></a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- 対応地域 -->
+<section class="areas-section">
+  <h2>📍 対応地域（大阪市内全域）</h2>
+  <div class="areas-grid">
+    {% for area in site.areas %}
+      {% assign area_posts = site.posts | where: "area", area %}
+      {% if area_posts.size > 0 %}
+        <a href="/areas/{{ area }}/" class="area-tag active">{{ area }} <span class="count">({{ area_posts.size }}記事)</span></a>
+      {% else %}
+        <a href="/areas/{{ area }}/" class="area-tag">{{ area }} <span class="count">(準備中)</span></a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- お問い合わせ -->
+<section class="contact-section">
+  <h2>📞 お問い合わせ・ご相談</h2>
+  <div class="contact-info">
+    <div class="contact-item">
+      <h3>📱 お電話でのご相談</h3>
+      <p class="phone-number"><a href="tel:080-4769-0101">080-4769-0101</a></p>
+      <p>毎日 8:00-21:00（年中無休）</p>
+    </div>
+    <div class="contact-item">
+      <h3>🌐 Webからのお問い合わせ</h3>
+      <p><a href="https://peraichi.com/landing_pages/view/himawari-massage/" class="web-contact-btn">Web予約・相談フォーム</a></p>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero-section {
+  background: 
+    linear-gradient(135deg, rgba(255, 182, 193, 0.8) 0%, rgba(248, 187, 217, 0.8) 50%, rgba(221, 160, 221, 0.8) 100%),
+    url('/assets/images/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+  margin-bottom: 40px;
+  border-radius: 15px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero-section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-primary, .cta-secondary {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-shadow: none;
+}
+
+.cta-primary {
+  background: white;
+  color: #DB7093;
+  border: 2px solid white;
+}
+
+.cta-primary:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cta-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-secondary:hover {
+  background: white;
+  color: #DB7093;
+  transform: translateY(-2px);
+}
+
+.service-overview, .conditions-section, .areas-section, .contact-section {
+  margin: 40px 0;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 5px solid #FFB6C1;
+}
+
+.service-overview h2, .conditions-section h2, .areas-section h2, .contact-section h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.service-item h3 {
+  color: #DB7093;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.conditions-grid, .areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.condition-tag, .area-tag {
+  display: inline-block;
+  background: white;
+  color: #DB7093;
+  padding: 10px 15px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid #FFB6C1;
+}
+
+.condition-tag:hover, .area-tag:hover {
+  background: #FFB6C1;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.area-tag.active {
+  background: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.area-tag.active:hover {
+  background: #218838;
+  border-color: #218838;
+}
+
+.count {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.contact-item {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.contact-item h3 {
+  color: #DB7093;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.phone-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.phone-number a {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.phone-number a:hover {
+  color: #218838;
+}
+
+.web-contact-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.web-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 30px 15px;
+  }
+  
+  .hero-section h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-primary, .cta-secondary {
+    width: 80%;
+    max-width: 300px;
+  }
+  
+  .service-grid, .contact-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .conditions-grid, .areas-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  
+  .service-overview, .conditions-section, .areas-section, .contact-section {
+    padding: 20px;
+  }
+}
+</style>

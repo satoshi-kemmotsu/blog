@@ -1,0 +1,150 @@
+---
+layout: default
+---
+
+<div class="archive-header">
+  <h1>{{ page.symptom }}の記事一覧</h1>
+  <p>{{ page.symptom }}に関する専門記事をまとめています。症状の詳細、緩和事例、よくある質問、予防法など幅広い情報を提供しています。</p>
+</div>
+
+<div class="archive-content">
+  {% assign symptom_posts = site.posts | where: "condition", page.symptom %}
+  
+  {% if symptom_posts.size > 0 %}
+    <div class="posts-grid">
+      {% for post in symptom_posts %}
+        <article class="post-card">
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <div class="post-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
+            {% if post.categories %}
+              • カテゴリ: {{ post.categories | join: ", " }}
+            {% endif %}
+          </div>
+          <div class="post-excerpt">
+            {{ post.description | default: post.excerpt | strip_html | truncate: 120 }}
+          </div>
+          <div class="post-tags">
+            {% for tag in post.tags %}
+              <span class="tag">#{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>現在、{{ page.symptom }}に関する記事はありません。</p>
+  {% endif %}
+</div>
+
+<!-- 関連症状 -->
+<div class="related-symptoms">
+  <h3>その他の対応症状</h3>
+  <div class="symptoms-list">
+    {% for condition in site.conditions %}
+      {% unless condition == page.symptom %}
+        <a href="/symptoms/{{ condition | url_encode }}/" class="symptom-link">{{ condition }}</a>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+<style>
+.archive-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+
+.posts-grid {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.post-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.post-card h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+}
+
+.post-card h2 a {
+  text-decoration: none;
+  color: #333;
+}
+
+.post-card h2 a:hover {
+  color: #007cba;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.post-excerpt {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.post-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+
+.related-symptoms {
+  margin: 40px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.symptoms-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.symptom-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.symptom-link:hover {
+  background: #007cba;
+  color: white;
+  border-color: #007cba;
+}
+
+</style>
