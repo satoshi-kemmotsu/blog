@@ -16,8 +16,13 @@
 # [plugins]
 #   package = "@netlify/plugin-jekyll-cache"
 
-# リダイレクト設定（将来的に使用）
+# リダイレクト設定
 [[redirects]]
-  from = "/old-path/*"
-  to = "/new-path/:splat"
+  from = "/2025/08/09/test-permalink"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/2025/08/09/test-permalink/"
+  to = "/"
   status = 301
