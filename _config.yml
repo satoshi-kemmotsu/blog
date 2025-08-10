@@ -1,6 +1,6 @@
 # SEO ブログサイト設定（環境変数化済み・プロダクションではNetlifyで置換）
 # ローカル開発時は下記デフォルト値、プロダクションではNetlifyビルド時に環境変数で置換
-title: "🌻 ひまわり治療院 🌻"  # → ${SITE_TITLE}
+title: "ひまわり治療院 - 大阪市の訪問マッサージ・医療保険適用"  # → ${SITE_TITLE}
 description: "大阪市での訪問マッサージ・在宅医療マッサージ。脊柱管狭窄症、脳梗塞、パーキンソン病など各種傷病に対応。医療保険適用で安心。"  # → ${SITE_DESCRIPTION}
 baseurl: ""
 url: "https://himawari-massage.jp"  # → ${SITE_URL}
