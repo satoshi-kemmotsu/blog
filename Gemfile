@@ -4,7 +4,6 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.3.0"
 
 # Ruby 3.4対応の必須gem（デフォルトから除外されたgem群）
-gem "drb" # Ruby 3.4対応
 gem "mutex_m" # Ruby 3.4対応
 gem "fiddle" # Ruby 3.4対応
 gem "ostruct" # Ruby 3.4対応
@@ -21,4 +20,3 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
   gem "jekyll-paginate"
-gem "nonexistent_test_gem_12345"
