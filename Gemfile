@@ -20,3 +20,4 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
   gem "jekyll-paginate"
+  gem "nonexistent-gem-for-error-test"  # 意図的エラー
