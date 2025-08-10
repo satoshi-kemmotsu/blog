@@ -19,4 +19,4 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
   gem "jekyll-paginate"
-end
+endgem "this_gem_does_not_exist" # Test error trigger
