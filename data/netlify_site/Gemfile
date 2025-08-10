@@ -1,15 +1,9 @@
 source "https://rubygems.org"
 
-# Netlify用のJekyll
-gem "jekyll", "~> 4.3.0"
+# GitHub Pages互換 - _dataファイル読み込み問題を解決
+gem "github-pages", group: :jekyll_plugins
 
 # Windows環境用（必要に応じて）
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
-# Jekyll plugins
-group :jekyll_plugins do
-  gem "jekyll-feed"
-  gem "jekyll-sitemap"
-  gem "jekyll-seo-tag"
-  gem "jekyll-paginate"
-end
+# 注意: github-pagesがjekyll-feed, jekyll-sitemap, jekyll-seo-tag, jekyll-paginateを自動で含む
