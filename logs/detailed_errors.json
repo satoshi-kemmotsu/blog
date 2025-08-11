@@ -1,0 +1,185 @@
+[
+  {
+    "timestamp": "2025-08-10T13:52:25.824535",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "Manual Test",
+    "site_name": "Test Site",
+    "error_message": "cannot load such file -- drb (LoadError)",
+    "admin_url": "N/A",
+    "detected_issues": [
+      {
+        "category": "ruby_gems",
+        "pattern": "cannot load such file --",
+        "severity": "HIGH",
+        "platform": "manual"
+      },
+      {
+        "category": "ruby_gems",
+        "pattern": "LoadError",
+        "severity": "HIGH",
+        "platform": "manual"
+      }
+    ],
+    "raw_payload": {
+      "site": "Test Site",
+      "error": "cannot load such file -- drb (LoadError)"
+    }
+  },
+  {
+    "timestamp": "2025-08-10T13:52:25.900005",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "Manual Test",
+    "site_name": "Test Jekyll Site",
+    "error_message": "Liquid syntax error in post template",
+    "admin_url": "N/A",
+    "detected_issues": [
+      {
+        "category": "jekyll",
+        "pattern": "Liquid syntax error",
+        "severity": "MEDIUM",
+        "platform": "manual"
+      }
+    ],
+    "raw_payload": {
+      "site": "Test Jekyll Site",
+      "error": "Liquid syntax error in post template"
+    }
+  },
+  {
+    "timestamp": "2025-08-10T13:52:25.964644",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "Manual Test",
+    "site_name": "Test Netlify Site",
+    "error_message": "dependency_installation script returned non-zero exit code: 1",
+    "admin_url": "N/A",
+    "detected_issues": [
+      {
+        "category": "netlify",
+        "pattern": "dependency_installation script returned non-zero exit code",
+        "severity": "HIGH",
+        "platform": "manual"
+      }
+    ],
+    "raw_payload": {
+      "site": "Test Netlify Site",
+      "error": "dependency_installation script returned non-zero exit code: 1"
+    }
+  },
+  {
+    "timestamp": "2025-08-10T13:59:03.645522",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "Netlify",
+    "site_name": "neon-biscochitos-8dd468",
+    "error_message": "Could not find gem nonexistent-gem-for-error-test",
+    "admin_url": "https://app.netlify.com/projects/neon-biscochitos-8dd468",
+    "detected_issues": [
+      {
+        "category": "ruby_gems",
+        "pattern": "Could not find gem",
+        "severity": "HIGH",
+        "platform": "netlify"
+      }
+    ],
+    "raw_payload": {
+      "state": "error",
+      "name": "neon-biscochitos-8dd468",
+      "error_message": "Could not find gem nonexistent-gem-for-error-test",
+      "admin_url": "https://app.netlify.com/projects/neon-biscochitos-8dd468"
+    }
+  },
+  {
+    "timestamp": "2025-08-10T14:02:58.637463",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "Netlify",
+    "site_name": "himawari-massage.jp",
+    "error_message": "Failed during stage 'Install dependencies': Command failed with exit code 1: bundle install --path vendor/bundle --binstubs vendor/bundle/bin --without development --deployment && bundle clean",
+    "admin_url": "https://app.netlify.com/sites/neon-biscochitos-8dd468/deploys/674af5c25b5c530008a7afe6",
+    "detected_issues": [
+      {
+        "category": "netlify",
+        "pattern": "Command failed with exit code",
+        "severity": "HIGH",
+        "platform": "netlify"
+      }
+    ],
+    "raw_payload": {
+      "state": "error",
+      "name": "himawari-massage.jp",
+      "error_message": "Failed during stage 'Install dependencies': Command failed with exit code 1: bundle install --path vendor/bundle --binstubs vendor/bundle/bin --without development --deployment && bundle clean",
+      "admin_url": "https://app.netlify.com/sites/neon-biscochitos-8dd468/deploys/674af5c25b5c530008a7afe6",
+      "deploy_ssl_url": "https://neon-biscochitos-8dd468.netlify.app",
+      "deploy_url": "http://674af5c25b5c530008a7afe6--neon-biscochitos-8dd468.netlify.app"
+    }
+  },
+  {
+    "timestamp": "2025-08-10T14:03:13.506226",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "Netlify",
+    "site_name": "himawari-massage.jp",
+    "error_message": "Gem::LoadError: cannot load such file -- this-gem-does-not-exist-anywhere",
+    "admin_url": "https://app.netlify.com/sites/neon-biscochitos-8dd468/deploys/674af5c25b5c530008a7afe6",
+    "detected_issues": [
+      {
+        "category": "ruby_gems",
+        "pattern": "cannot load such file --",
+        "severity": "HIGH",
+        "platform": "netlify"
+      },
+      {
+        "category": "ruby_gems",
+        "pattern": "LoadError",
+        "severity": "HIGH",
+        "platform": "netlify"
+      }
+    ],
+    "raw_payload": {
+      "state": "error",
+      "name": "himawari-massage.jp",
+      "error_message": "Gem::LoadError: cannot load such file -- this-gem-does-not-exist-anywhere",
+      "admin_url": "https://app.netlify.com/sites/neon-biscochitos-8dd468/deploys/674af5c25b5c530008a7afe6"
+    }
+  },
+  {
+    "timestamp": "2025-08-10T14:05:47.536328",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "GitHub Actions",
+    "site_name": "satoshi-kemmotsu/blog",
+    "error_message": "Workflow 'Jekyll Build and Deploy' failed",
+    "admin_url": "https://github.com/satoshi-kemmotsu/blog/actions/runs/12345678",
+    "detected_issues": [],
+    "raw_payload": {
+      "action": "completed",
+      "workflow_run": {
+        "id": 12345678,
+        "name": "Jekyll Build and Deploy",
+        "conclusion": "failure",
+        "html_url": "https://github.com/satoshi-kemmotsu/blog/actions/runs/12345678"
+      },
+      "repository": {
+        "full_name": "satoshi-kemmotsu/blog"
+      }
+    }
+  },
+  {
+    "timestamp": "2025-08-10T14:06:48.127754",
+    "project": "ひまわり治療院ブログシステム",
+    "platform": "GitHub Actions",
+    "site_name": "satoshi-kemmotsu/blog",
+    "error_message": "Workflow 'Build and Deploy' failed",
+    "admin_url": "https://github.com/satoshi-kemmotsu/blog/actions/runs/98765432",
+    "detected_issues": [],
+    "raw_payload": {
+      "action": "completed",
+      "workflow_run": {
+        "id": 98765432,
+        "name": "Build and Deploy",
+        "conclusion": "failure",
+        "html_url": "https://github.com/satoshi-kemmotsu/blog/actions/runs/98765432",
+        "logs_url": "https://api.github.com/repos/satoshi-kemmotsu/blog/actions/runs/98765432/logs"
+      },
+      "repository": {
+        "full_name": "satoshi-kemmotsu/blog"
+      }
+    }
+  }
+]
