@@ -200,10 +200,10 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   transform: translateY(-2px);
 }
 
-/* 緊急ボタン */
+/* WEB予約ボタン (LP風スタイル) */
 .emergency-btn {
   display: inline-block;
-  background: linear-gradient(45deg, #dc3545, #e55a5a);
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
   color: white;
   padding: 12px 25px;
   border-radius: 30px;
@@ -211,27 +211,28 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   font-weight: bold;
   font-size: 1rem;
   transition: all 0.3s ease;
-  border: 2px solid #dc3545;
-  animation: urgentPulse 1.5s infinite;
+  border: 2px solid #ff6b35;
+  animation: webReservePulse 2s infinite;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .emergency-btn:hover {
-  background: #c82333;
+  background: linear-gradient(45deg, #e55a2b, #e6841a);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
   text-decoration: none;
   color: white;
 }
 
-@keyframes urgentPulse {
+@keyframes webReservePulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
   }
   50% {
-    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.6), 0 0 0 8px rgba(255, 107, 53, 0.1);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
   }
 }
 
