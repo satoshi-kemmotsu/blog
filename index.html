@@ -26,6 +26,9 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
     <a href="tel:{{ site.data.business.phone }}" class="cta-secondary">
       📱 {{ site.data.business.phone }}
     </a>
+    <a href="tel:{{ site.data.business.phone }}" class="emergency-btn">
+      🚨 お急ぎの方はこちら
+    </a>
   </div>
 </div>
 
@@ -85,7 +88,10 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
     <div class="contact-item">
       <h3>📱 お電話でのご相談</h3>
       <p class="phone-number"><a href="tel:080-4769-0101">080-4769-0101</a></p>
-      <p>毎日 8:00-21:00（年中無休）</p>
+      <div class="business-hours">
+        <span class="hours-badge">🕐 毎日 8:00-21:00</span>
+        <span class="open-status">年中無休対応</span>
+      </div>
     </div>
     <div class="contact-item">
       <h3>🌐 Webからのお問い合わせ</h3>
@@ -192,6 +198,41 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   background: white;
   color: #DB7093;
   transform: translateY(-2px);
+}
+
+/* 緊急ボタン */
+.emergency-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #dc3545, #e55a5a);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid #dc3545;
+  animation: urgentPulse 1.5s infinite;
+}
+
+.emergency-btn:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(220, 53, 69, 0.4);
+  text-decoration: none;
+  color: white;
+}
+
+@keyframes urgentPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
 }
 
 .service-overview, .conditions-section, .areas-section, .contact-section {
@@ -313,6 +354,32 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   color: #218838;
 }
 
+/* 営業時間の強調表示 */
+.business-hours {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.hours-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, #28a745, #20c997);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3);
+}
+
+.open-status {
+  display: block;
+  color: #28a745;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
 .web-contact-btn {
   display: inline-block;
   background: linear-gradient(45deg, #FFB6C1, #F8BBD9);
@@ -365,7 +432,7 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
     align-items: center;
   }
   
-  .cta-primary, .cta-secondary {
+  .cta-primary, .cta-secondary, .emergency-btn {
     width: 80%;
     max-width: 300px;
   }
