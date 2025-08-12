@@ -2,7 +2,7 @@
 layout: "post"
 title: "パーキンソン病でお悩みの方へ｜鶴見区の訪問マッサージで症状緩和"
 date: "2025-08-12 10:06:06 +0000"
-categories: [symptom_guide]
+categories: []
 tags: ['パーキンソン病', '鶴見区', '訪問マッサージ', '医療保険適用', '大阪市']
 
 condition: "パーキンソン病"
