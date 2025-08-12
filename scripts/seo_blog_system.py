@@ -9,11 +9,13 @@ import os
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 import json
+from medical_data_expander import MedicalDataExpander
 
 class SEOBlogSystem:
     def __init__(self):
         self.project_root = self._get_project_root()
         self.env_vars = self._load_environment_variables()
+        self.medical_expander = MedicalDataExpander()
         
     def _get_project_root(self):
         project_root = os.environ.get('PROJECT_ROOT')
@@ -201,30 +203,41 @@ class SEOBlogSystem:
         return content
     
     def _get_condition_info(self, condition):
-        """症状情報取得"""
-        condition_data = {
-            'パーキンソン病': {
-                'description': '進行性の神経変性疾患で、ドパミン神経細胞の減少により運動機能障害が生じる疾患',
-                'symptoms': ['振戦（手足の震え）', '筋強剛（筋肉のこわばり）', '無動・寡動（動作の緩慢）', '姿勢保持反射障害', 'すくみ足', '小刻み歩行'],
-                'daily_concerns': ['歩行時に足がすくんでしまう', '文字を書くのが困難', '着替えに時間がかかる', '食事の際にこぼしやすい', '転倒のリスクが心配']
-            },
-            '骨粗鬆症': {
-                'description': '骨密度が低下し、骨折しやすくなる疾患で、特に高齢女性に多く見られる',
-                'symptoms': ['腰痛', '背中の痛み', '身長の縮み', '骨折しやすさ', '姿勢の悪化', '歩行困難'],
-                'daily_concerns': ['転倒が怖い', '重いものが持てない', '長時間立っているのが辛い', '階段の昇降が困難', '外出するのが不安']
-            },
-            '五十肩': {
-                'description': '肩関節周囲炎により肩関節の可動域制限と疼痛が生じ、特に夜間痛や結帯・結髪動作困難などが特徴的な疾患',
-                'symptoms': ['肩の痛みと可動域制限', '夜間痛', '腕を上げる動作の困難', '肩周囲の筋力低下', '結帯・結髪動作の困難'],
-                'daily_concerns': ['夜中に肩の痛みで目が覚める', '洗髪や着替えが一人でできない', '高い所の物が取れない', '痛みで仕事に集中できない']
+        """症状情報取得（medical_data_expanderを使用）"""
+        try:
+            # MedicalDataExpanderから詳細情報を取得
+            expanded_data = self.medical_expander.expand_condition_details(condition)
+            return {
+                'description': expanded_data['description'],
+                'symptoms': expanded_data['symptoms'],
+                'daily_concerns': expanded_data['daily_concerns']
             }
-        }
-        
-        return condition_data.get(condition, {
-            'description': f'{condition}による症状でお困りの方への専門的なケア',
-            'symptoms': ['関連する症状', '日常生活への影響', '機能障害'],
-            'daily_concerns': ['日常動作の困難', '生活の質の低下', '将来への不安']
-        })
+        except Exception as e:
+            print(f"⚠️  {condition}の詳細データ取得に失敗、デフォルト値を使用: {str(e)}")
+            # フォールバック（既存データは保持）
+            condition_data = {
+                'パーキンソン病': {
+                    'description': '進行性の神経変性疾患で、ドパミン神経細胞の減少により運動機能障害が生じる疾患',
+                    'symptoms': ['振戦（手足の震え）', '筋強剛（筋肉のこわばり）', '無動・寡動（動作の緩慢）', '姿勢保持反射障害', 'すくみ足', '小刻み歩行'],
+                    'daily_concerns': ['歩行時に足がすくんでしまう', '文字を書くのが困難', '着替えに時間がかかる', '食事の際にこぼしやすい', '転倒のリスクが心配']
+                },
+                '骨粗鬆症': {
+                    'description': '骨密度が低下し、骨折しやすくなる疾患で、特に高齢女性に多く見られる',
+                    'symptoms': ['腰痛', '背中の痛み', '身長の縮み', '骨折しやすさ', '姿勢の悪化', '歩行困難'],
+                    'daily_concerns': ['転倒が怖い', '重いものが持てない', '長時間立っているのが辛い', '階段の昇降が困難', '外出するのが不安']
+                },
+                '五十肩': {
+                    'description': '肩関節周囲炎により肩関節の可動域制限と疼痛が生じ、特に夜間痛や結帯・結髪動作困難などが特徴的な疾患',
+                    'symptoms': ['肩の痛みと可動域制限', '夜間痛', '腕を上げる動作の困難', '肩周囲の筋力低下', '結帯・結髪動作の困難'],
+                    'daily_concerns': ['夜中に肩の痛みで目が覚める', '洗髪や着替えが一人でできない', '高い所の物が取れない', '痛みで仕事に集中できない']
+                }
+            }
+            
+            return condition_data.get(condition, {
+                'description': f'{condition}による症状でお困りの方への専門的なケア',
+                'symptoms': ['関連する症状', '日常生活への影響', '機能障害'],
+                'daily_concerns': ['日常動作の困難', '生活の質の低下', '将来への不安']
+            })
     
     def _generate_area_info(self, area):
         """地域情報生成"""
