@@ -1,5 +1,9 @@
 # ひまわり治療院 SEOブログ - Netlify版
 
+## 🚨 重要：本番環境はNetlify（GitHub Pagesではない！）
+
+このリポジトリは**Netlify**でホストされており、**GitHub Pagesは使用していません**。
+
 ## 🚀 ハードコード完全撲滅達成！
 
 このリポジトリは**Netlify環境変数**を使用してハードコーディングを完全に排除しています。
@@ -27,9 +31,11 @@ BASE_ADDRESS = 大阪市浪速区
 
 ### ✅ 動作確認
 
-- **サイトURL**: https://neon-biscochitos-8dd468.netlify.app
-- **管理URL**: https://app.netlify.com/projects/neon-biscochitos-8dd468
+- **本番URL**: https://himawari-massage.jp/ （Netlifyカスタムドメイン）
+- **Netlify URL**: https://neon-biscochitos-8dd468.netlify.app
+- **管理URL**: https://app.netlify.com/sites/neon-biscochitos-8dd468
 - **GitHub**: https://github.com/satoshi-kemmotsu/blog
+- **デプロイ方式**: GitHubプッシュ → Netlify自動ビルド → 本番反映
 
 ### 🏆 GAFAM憲法準拠
 
