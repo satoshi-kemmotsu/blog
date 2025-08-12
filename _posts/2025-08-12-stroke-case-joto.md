@@ -3,6 +3,7 @@ layout: post
 title: "脳梗塞ケア事例｜城東区での在宅医療マッサージケア記録"
 date: 2025-08-12
 category: case_study
+condition: "脳梗塞"
 tags: [脳梗塞, 城東区, 訪問マッサージ, 医療保険, ケア事例]
 ---
 

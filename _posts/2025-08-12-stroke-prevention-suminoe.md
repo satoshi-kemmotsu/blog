@@ -3,6 +3,7 @@ layout: post
 title: "脳梗塞症状緩和のセルフケア｜住之江区在宅医療マッサージ指導"
 date: 2025-08-12
 category: prevention
+condition: "脳梗塞"
 tags: [脳梗塞, 住之江区, 訪問マッサージ, 医療保険適用, セルフケア]
 ---
 

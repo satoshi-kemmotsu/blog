@@ -3,6 +3,7 @@ layout: post
 title: "脳梗塞でお悩みの方へ｜旭区の訪問マッサージで症状緩和"
 date: 2025-08-12
 category: symptom_guide
+condition: "脳梗塞"
 tags: [脳梗塞, 旭区, 訪問マッサージ, 医療保険適用]
 ---
 

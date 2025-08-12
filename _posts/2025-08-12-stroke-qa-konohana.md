@@ -3,6 +3,7 @@ layout: post
 title: "脳梗塞のよくある質問｜此花区訪問マッサージ専門家が解説"
 date: 2025-08-12
 category: qa
+condition: "脳梗塞"
 tags: [脳梗塞, 此花区, 訪問マッサージ, 医療保険, よくある質問]
 ---
 
