@@ -3,6 +3,7 @@ layout: post
 title: "腰部脊柱管狭窄症ケア事例｜旭区での在宅医療マッサージケア記録"
 date: 2025-08-12
 category: case_study
+condition: "脊柱管狭窄症"
 tags: [腰部脊柱管狭窄症, 旭区, 訪問マッサージ, 医療保険, ケア事例]
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "脳血管障害症状緩和のセルフケア｜港区在宅医療マッサージ指導"
 date: 2025-08-12
 category: prevention
+condition: "脳血管障害"
 tags: [脳血管障害, 港区, 訪問マッサージ, 医療保険適用, セルフケア]
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title: "頸椎症でお悩みの方へ｜住吉区の訪問マッサージで症状緩和"
 date: 2025-08-12
 category: symptom_guide
+condition: "頸椎症"
 tags: [頸椎症, 住吉区, 訪問マッサージ, 医療保険適用]
 ---
 

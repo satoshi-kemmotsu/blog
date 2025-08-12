@@ -3,6 +3,7 @@ layout: post
 title: "関節拘縮ケア事例｜鶴見区での在宅医療マッサージケア記録"
 date: 2025-08-12
 category: case_study
+condition: "関節拘縮"
 tags: [関節拘縮, 鶴見区, 訪問マッサージ, 医療保険, ケア事例]
 ---
 
