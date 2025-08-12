@@ -6,6 +6,13 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 
 <!-- {{ site.data.business.company_name }} SEO強化サイト -->
 <div class="hero-section">
+  <!-- 信頼性バッジ -->
+  <div class="trust-badges">
+    <span class="badge">🏥 厚生労働省認定</span>
+    <span class="badge">💰 医療保険適用</span>
+    <span class="badge">🚗 全域対応</span>
+  </div>
+  
   <h1>🌻 大阪市の訪問マッサージ・在宅医療マッサージ</h1>
   <p class="hero-description">
     <strong>医療保険適用</strong>で安心の訪問マッサージサービス。<br>
@@ -101,6 +108,26 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   margin-bottom: 40px;
   border-radius: 15px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* 信頼性バッジ */
+.trust-badges {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.9);
+  color: #DB7093;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .hero-section h1 {
@@ -222,7 +249,8 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
 .condition-tag:hover, .area-tag:hover {
   background: #FFB6C1;
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
 }
 
 .area-tag.active {
@@ -285,6 +313,23 @@ description: "大阪市での訪問マッサージ・在宅医療マッサージ
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
+}
+
+/* CTAボタンのパルス効果 */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+  }
+  50% {
+    box-shadow: 0 5px 25px rgba(255, 182, 193, 0.8);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.4);
+  }
+}
+
+.cta-primary {
+  animation: pulse 2s infinite;
 }
 
 .web-contact-btn:hover {
