@@ -281,4 +281,67 @@ layout: default
     text-align: center;
   }
 }
+
+/* スマホ用フローティングボタン（個別記事用） */
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: none; /* デスクトップでは非表示 */
+}
+
+.floating-btn {
+  display: inline-block;
+  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+  transition: all 0.3s ease;
+  animation: floatingPulse 2s infinite;
+  border: none;
+}
+
+.floating-btn:hover {
+  background: linear-gradient(45deg, #e55a2b, #e6841a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 107, 53, 0.6);
+  text-decoration: none;
+  color: white;
+}
+
+@keyframes floatingPulse {
+  0% {
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.7), 0 0 0 10px rgba(255, 107, 53, 0.1);
+  }
+  100% {
+    box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+  }
+}
+
+/* モバイル表示 */
+@media (max-width: 768px) {
+  .floating-button {
+    display: block !important;
+  }
+  
+  .floating-btn {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}
 </style>
+
+<!-- スマホ用フローティングボタン（個別記事専用） -->
+<div class="floating-button">
+  <a href="{{ site.data.business.main_site_url }}" class="floating-btn">
+    ✨ 1分WEB予約
+  </a>
+</div>
