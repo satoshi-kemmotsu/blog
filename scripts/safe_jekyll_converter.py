@@ -51,7 +51,7 @@ class SafeJekyllConverter:
         metadata = self._analyze_article(source_content)
         
         # Jekyll出力ディレクトリ設定
-        jekyll_posts_dir = self.project_root / "data" / "github_pages" / "_posts"
+        jekyll_posts_dir = self.project_root / "_posts"
         jekyll_posts_dir.mkdir(parents=True, exist_ok=True)
         
         # ファイル名生成
