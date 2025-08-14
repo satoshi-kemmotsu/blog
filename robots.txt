@@ -1,0 +1,29 @@
+# ひまわり治療院SEOブログ robots.txt
+# https://himawari-massage.jp/
+
+# すべての検索エンジンボットを許可
+User-agent: *
+Allow: /
+
+# サイトマップ
+Sitemap: https://himawari-massage.jp/sitemap.xml
+
+# クロール速度制御（1秒に1リクエスト）
+Crawl-delay: 1
+
+# 管理画面等をクロール対象外に
+Disallow: /admin/
+Disallow: /scripts/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /_drafts/
+
+# 画像検索を促進
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /uploads/
+
+# モバイルクローラーを優先
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 0
