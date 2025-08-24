@@ -1,0 +1,10 @@
+# GitHub Pages専用 robots.txt
+# https://satoshi-kemmotsu.github.io/blog/
+# このファイルをGitHub Pagesのルートに配置してください
+
+# すべてのクローラーを制限
+User-agent: *
+Disallow: /
+
+# カスタムドメインへのリダイレクトを促す
+# 正規URLはhttps://himawari-massage.jp/
