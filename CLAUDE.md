@@ -40,6 +40,36 @@
 
 ---
 
+## [2025-08-24] 重複URL問題の根本解決
+### 🚨 問題発見
+- **Search Console**: 73ページが「Alternate page with proper canonical tag」エラー
+- **原因**: GitHub PagesとNetlifyの**二重ホスティング状態**
+  - Netlify: `https://himawari-massage.jp`（メイン運用）
+  - GitHub Pages: `https://satoshi-kemmotsu.github.io/blog/`（無効化忘れ）
+  - 同じコンテンツが2つのURLで存在→Googleが混乱
+
+### ✅ 実施した対策
+1. **canonicalタグ追加**: `_layouts/default.html`に正規URL指定
+2. **GitHub Pages無効化**: Settings→Pages→Source→None
+3. **Validation開始**: Search Consoleで修正検証リクエスト済み
+
+### 📊 結果
+- GitHub Pages完全無効化完了
+- Netlifyのみで運用（単一ホスティング環境）
+- 検証期間: 3-14日（Googleが修正を確認中）
+
+### ⚠️ 重要な学び
+- **サーバー移行時は必ず旧環境を無効化**すること
+- 二重ホスティングは重複コンテンツペナルティの原因
+- canonicalタグは保険として重要だが、根本解決が最優先
+
+### 💡 次回への申し送り
+- 数日後にSearch Consoleで検証結果を確認
+- 「Passed」になれば73ページが正常インデックスされる
+- インデックス改善後、検索順位の向上が期待できる
+
+---
+
 ## [2025-08-15] SEOインデックス改善実施
 ### 🔍 問題分析と対策
 - **問題**: Google Search Consoleで61記事が「Crawled - currently not indexed」
